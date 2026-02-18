@@ -10,10 +10,14 @@ const DEFAULT_IMAGES = [
   'https://images.unsplash.com/photo-1629909615782-3a4c1b24a8f2?w=400',
 ];
 
-export default function GallerySection() {
-  const [images, setImages] = useState([]);
+export default function GallerySection({ initialImages }) {
+  const [images, setImages] = useState(initialImages?.length ? initialImages : []);
 
   useEffect(() => {
+    if (initialImages?.length) setImages(initialImages);
+  }, [initialImages]);
+  useEffect(() => {
+    if (initialImages?.length) return;
     fetch(`${API_URL}/gallery.php`)
       .then(res => res.json())
       .then(data => {
@@ -21,7 +25,7 @@ export default function GallerySection() {
         else setImages(DEFAULT_IMAGES.map((url, i) => ({ image_url: url, title: `Clinic ${i + 1}` })));
       })
       .catch(() => setImages(DEFAULT_IMAGES.map((url, i) => ({ image_url: url, title: `Clinic ${i + 1}` }))));
-  }, []);
+  }, [initialImages]);
 
   return (
     <section className="section gallery-section">

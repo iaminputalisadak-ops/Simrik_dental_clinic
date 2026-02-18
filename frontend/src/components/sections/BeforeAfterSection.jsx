@@ -4,17 +4,24 @@ import BeforeAfterSlider from '../BeforeAfterSlider';
 
 const API_URL = '/api';
 
-export default function BeforeAfterSection() {
-  const [cases, setCases] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function BeforeAfterSection({ initialCases }) {
+  const [cases, setCases] = useState(initialCases?.length ? (initialCases.slice(0, 6)) : []);
+  const [loading, setLoading] = useState(!initialCases?.length);
 
   useEffect(() => {
+    if (initialCases?.length) {
+      setCases(initialCases.slice(0, 6));
+      setLoading(false);
+    }
+  }, [initialCases]);
+  useEffect(() => {
+    if (initialCases?.length) return;
     fetch(`${API_URL}/before_after.php`)
       .then(res => res.json())
       .then(data => data.success && setCases((data.cases || []).slice(0, 6)))
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, []);
+  }, [initialCases]);
 
   if (loading || cases.length === 0) return null;
 

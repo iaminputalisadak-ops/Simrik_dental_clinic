@@ -14,18 +14,23 @@ const DEFAULT_SLIDE = {
   btn2_link: '/about'
 };
 
-export default function Hero({ onBookClick }) {
-  const [slides, setSlides] = useState([DEFAULT_SLIDE]);
+export default function Hero({ onBookClick, initialSlides }) {
+  const [slides, setSlides] = useState(initialSlides?.length ? initialSlides : [DEFAULT_SLIDE]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (initialSlides?.length) setSlides(initialSlides);
+  }, [initialSlides]);
+
+  useEffect(() => {
+    if (initialSlides?.length) return;
     fetch(`${API_URL}/hero.php`)
       .then(res => res.json())
       .then(data => {
         if (data.success && data.slides?.length) setSlides(data.slides);
       })
       .catch(() => {});
-  }, []);
+  }, [initialSlides]);
 
   useEffect(() => {
     if (slides.length <= 1) return;

@@ -14,10 +14,14 @@ function formatDate(d) {
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-export default function BlogPreview() {
-  const [posts, setPosts] = useState([]);
+export default function BlogPreview({ initialPosts }) {
+  const [posts, setPosts] = useState(initialPosts?.length ? initialPosts : []);
 
   useEffect(() => {
+    if (initialPosts?.length) setPosts(initialPosts);
+  }, [initialPosts]);
+  useEffect(() => {
+    if (initialPosts?.length) return;
     fetch(`${API_URL}/blog.php?limit=6`)
       .then(res => res.json())
       .then(data => {
@@ -25,7 +29,7 @@ export default function BlogPreview() {
         else setPosts(DEFAULT_POSTS);
       })
       .catch(() => setPosts(DEFAULT_POSTS));
-  }, []);
+  }, [initialPosts]);
 
   return (
     <section className="section blog-section blog-section-new">

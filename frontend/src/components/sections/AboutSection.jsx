@@ -30,15 +30,19 @@ const IconPersonalized = () => (
   </svg>
 );
 
-export default function AboutSection() {
-  const [content, setContent] = useState(DEFAULT);
+export default function AboutSection({ initialContent }) {
+  const [content, setContent] = useState(initialContent ? { ...DEFAULT, ...initialContent } : DEFAULT);
 
   useEffect(() => {
+    if (initialContent) setContent({ ...DEFAULT, ...initialContent });
+  }, [initialContent]);
+  useEffect(() => {
+    if (initialContent) return;
     fetch(`${API_URL}/about.php`)
       .then(res => res.json())
       .then(data => data.success && data.content && setContent({ ...DEFAULT, ...data.content }))
       .catch(() => {});
-  }, []);
+  }, [initialContent]);
 
   return (
     <section className="section about-section about-section-new">

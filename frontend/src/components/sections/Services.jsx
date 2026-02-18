@@ -11,10 +11,14 @@ const DEFAULT_SERVICES = [
   { title: 'Restorative Dentistry', image_url: 'https://images.unsplash.com/photo-1629909615782-3a4c1b24a8f2?w=600', link: '/treatments' },
 ];
 
-export default function Services() {
-  const [services, setServices] = useState([]);
+export default function Services({ initialServices }) {
+  const [services, setServices] = useState(initialServices?.length ? initialServices : []);
 
   useEffect(() => {
+    if (initialServices?.length) setServices(initialServices);
+  }, [initialServices]);
+  useEffect(() => {
+    if (initialServices?.length) return;
     fetch(`${API_URL}/services.php`)
       .then(res => res.json())
       .then(data => {
@@ -22,7 +26,7 @@ export default function Services() {
         else setServices(DEFAULT_SERVICES);
       })
       .catch(() => setServices(DEFAULT_SERVICES));
-  }, []);
+  }, [initialServices]);
 
   return (
     <section className="section services-section services-section-new">

@@ -58,15 +58,19 @@ const Icons = {
 
 const iconKeys = ['comfort', 'customized', 'modern', 'affordable', 'premium', 'clients'];
 
-export default function WhyChooseUs() {
-  const [content, setContent] = useState(DEFAULT);
+export default function WhyChooseUs({ initialContent }) {
+  const [content, setContent] = useState(initialContent ? { ...DEFAULT, ...initialContent } : DEFAULT);
 
   useEffect(() => {
+    if (initialContent) setContent({ ...DEFAULT, ...initialContent });
+  }, [initialContent]);
+  useEffect(() => {
+    if (initialContent) return;
     fetch(`${API_URL}/why_choose.php`)
       .then(res => res.json())
       .then(data => data.success && data.content && setContent({ ...DEFAULT, ...data.content }))
       .catch(() => {});
-  }, []);
+  }, [initialContent]);
 
   const features = [
     { title: content.feature1_title, desc: content.feature1_desc },

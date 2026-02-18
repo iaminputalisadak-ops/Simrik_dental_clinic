@@ -11,10 +11,14 @@ const DEFAULT_MEMBERS = [
   { name: 'Dr. Saurabh Pillai', qualification: 'BDS, MDS Oral and Maxillofacial Surgery', image_url: 'https://images.unsplash.com/photo-1618499891438-8cf651bb3104?w=400' },
 ];
 
-export default function Team() {
-  const [members, setMembers] = useState([]);
+export default function Team({ initialMembers }) {
+  const [members, setMembers] = useState(initialMembers?.length ? initialMembers : []);
 
   useEffect(() => {
+    if (initialMembers?.length) setMembers(initialMembers);
+  }, [initialMembers]);
+  useEffect(() => {
+    if (initialMembers?.length) return;
     fetch(`${API_URL}/team.php`)
       .then(res => res.json())
       .then(data => {
@@ -22,7 +26,7 @@ export default function Team() {
         else setMembers(DEFAULT_MEMBERS);
       })
       .catch(() => setMembers(DEFAULT_MEMBERS));
-  }, []);
+  }, [initialMembers]);
 
   return (
     <section className="section team-section team-section-new">
