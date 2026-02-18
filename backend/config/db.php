@@ -1,14 +1,14 @@
 <?php
 /**
- * Database configuration for Lagankhel Dental Clinic
+ * Database configuration for Simrik Dental Clinic
  * 
- * SETUP: 1) Ensure MySQL is running  2) Run database/schema.sql
+ * SETUP: 1) Ensure MySQL is running  2) Run database/schema.sql (or http://localhost:8000/setup_database.php)
  *        3) Set DB_PASS if you have a MySQL password
  */
 
 define('DB_HOST', '127.0.0.1');
 define('DB_PORT', '3306');  // Use 3308 if you use XAMPP/Laragon and MySQL is on 3308
-define('DB_NAME', 'lagankhel_dental');
+define('DB_NAME', 'simrik_dental_clinic');
 define('DB_USER', 'root');
 define('DB_PASS', '');  // Set your MySQL password here (XAMPP default: empty)
 define('DB_CHARSET', 'utf8mb4');

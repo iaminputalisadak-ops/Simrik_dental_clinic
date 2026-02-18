@@ -1,4 +1,4 @@
-USE lagankhel_dental;
+USE simrik_dental_clinic;
 
 CREATE TABLE IF NOT EXISTS why_choose_content (
     id INT PRIMARY KEY DEFAULT 1,

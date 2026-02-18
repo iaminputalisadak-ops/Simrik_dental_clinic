@@ -15,19 +15,16 @@ const DEFAULT_SLIDE = {
 };
 
 export default function Hero({ onBookClick }) {
-  const [slides, setSlides] = useState([]);
+  const [slides, setSlides] = useState([DEFAULT_SLIDE]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${API_URL}/hero.php`)
       .then(res => res.json())
       .then(data => {
         if (data.success && data.slides?.length) setSlides(data.slides);
-        else setSlides([DEFAULT_SLIDE]);
       })
-      .catch(() => setSlides([DEFAULT_SLIDE]))
-      .finally(() => setLoading(false));
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -39,8 +36,6 @@ export default function Hero({ onBookClick }) {
   const slide = slides[currentIndex] || DEFAULT_SLIDE;
   const opacity = Number(slide.overlay_opacity) || 0.5;
   const position = slide.text_position || 'center';
-
-  if (loading) return <section className="hero hero-loading"><div className="hero-skeleton" /></section>;
 
   return (
     <section className={`hero hero--${position}`}>

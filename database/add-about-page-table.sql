@@ -1,5 +1,5 @@
 -- Migration: Add about_page_content table for existing databases
-USE lagankhel_dental;
+USE simrik_dental_clinic;
 
 CREATE TABLE IF NOT EXISTS about_page_content (
     id INT PRIMARY KEY DEFAULT 1,

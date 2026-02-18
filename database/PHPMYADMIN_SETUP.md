@@ -1,4 +1,4 @@
-# phpMyAdmin Setup - Lagankhel Dental Clinic
+# phpMyAdmin Setup - Simrik Dental Clinic
 
 ## Step-by-step instructions
 
@@ -13,7 +13,7 @@
 4. Wait for "Import has been successfully finished"
 
 ### 3. Verify
-- In the left sidebar you should see the **lagankhel_dental** database
+- In the left sidebar you should see the **simrik_dental_clinic** database
 - Click it to see tables: admin_users, hero_banner, gallery_images, appointments, contact_messages, etc.
 
 ### 4. Done

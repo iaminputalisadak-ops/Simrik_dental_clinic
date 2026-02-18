@@ -1,8 +1,8 @@
--- Lagankhel Dental Clinic Database Schema
+-- Simrik Dental Clinic Database Schema
 -- Run this script to set up the database
 
-CREATE DATABASE IF NOT EXISTS lagankhel_dental CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE lagankhel_dental;
+CREATE DATABASE IF NOT EXISTS simrik_dental_clinic CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE simrik_dental_clinic;
 
 -- Admin users table
 CREATE TABLE IF NOT EXISTS admin_users (
@@ -15,14 +15,14 @@ CREATE TABLE IF NOT EXISTS admin_users (
 
 -- Default admin: admin / admin123 (change after first login!)
 INSERT INTO admin_users (username, password_hash, email) VALUES 
-('admin', '$2y$10$dMHD8a83tqlYaeSRRVZOauWN7xOpjz5MyVzgg9m4bAXU8FUw6biEK', 'admin@lagankheldental.com')
+('admin', '$2y$10$dMHD8a83tqlYaeSRRVZOauWN7xOpjz5MyVzgg9m4bAXU8FUw6biEK', 'admin@simrikdental.com')
 ON DUPLICATE KEY UPDATE username=username;
 
 -- Hero banner table (supports multiple slides for carousel)
 CREATE TABLE IF NOT EXISTS hero_banner (
     id INT AUTO_INCREMENT PRIMARY KEY,
     subtitle VARCHAR(255) DEFAULT 'YOUR SMILE IS OUR PRIDE',
-    title VARCHAR(255) DEFAULT 'Lagankhel Dental Clinic',
+    title VARCHAR(255) DEFAULT 'Simrik Dental Clinic',
     tagline VARCHAR(255) DEFAULT 'Best Dental Clinic in Lalitpur',
     background_image VARCHAR(500) NOT NULL,
     overlay_opacity DECIMAL(3,2) DEFAULT 0.45,
@@ -37,11 +37,11 @@ CREATE TABLE IF NOT EXISTS hero_banner (
 
 -- Insert default hero with professional dental clinic images from Unsplash
 INSERT INTO hero_banner (subtitle, title, tagline, background_image, overlay_opacity, text_position, sort_order) VALUES
-('YOUR SMILE IS OUR PRIDE', 'Lagankhel Dental Clinic', 'Best Dental Clinic in Lalitpur', 
+('YOUR SMILE IS OUR PRIDE', 'Simrik Dental Clinic', 'Best Dental Clinic in Lalitpur', 
  'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920', 0.5, 'center', 0),
-('EXPERIENCE EXCELLENCE', 'Lagankhel Dental Clinic', 'Modern Care, Traditional Values', 
+('EXPERIENCE EXCELLENCE', 'Simrik Dental Clinic', 'Modern Care, Traditional Values', 
  'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1920', 0.5, 'center', 1),
-('TRUSTED DENTAL CARE', 'Lagankhel Dental Clinic', 'Your Smile, Our Priority', 
+('TRUSTED DENTAL CARE', 'Simrik Dental Clinic', 'Your Smile, Our Priority', 
  'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920', 0.5, 'center', 2);
 
 -- Gallery images table
@@ -70,7 +70,7 @@ INSERT INTO gallery_images (image_url, title, category, sort_order) VALUES
 CREATE TABLE IF NOT EXISTS about_content (
     id INT PRIMARY KEY DEFAULT 1,
     section_heading VARCHAR(100) DEFAULT 'ABOUT OUR CLINIC',
-    main_title VARCHAR(255) DEFAULT 'Welcome to Lagankhel Dental Clinic',
+    main_title VARCHAR(255) DEFAULT 'Welcome to Simrik Dental Clinic',
     intro_text TEXT,
     feature1_title VARCHAR(100) DEFAULT 'Expert Care',
     feature1_desc TEXT,
@@ -83,10 +83,10 @@ CREATE TABLE IF NOT EXISTS about_content (
 );
 
 INSERT INTO about_content (section_heading, main_title, intro_text, feature1_title, feature1_desc, feature2_title, feature2_desc, image_url, read_more_link) VALUES
-('ABOUT OUR CLINIC', 'Welcome to Lagankhel Dental Clinic',
- 'Welcome to Lagankhel Dental Clinic where your journey to optimal oral health and a confident smile begins. Our team of experienced dentists is committed to providing personalized care in a warm and welcoming environment.',
- 'Expert Care', 'Our team of skilled dental professionals at Lagankhel Dental Clinic is dedicated to providing expert care tailored to your individual needs.',
- 'Personalized Approach', 'At Lagankhel Dental Clinic, we understand that every patient is unique, which is why we take a personalized approach to your dental care.',
+('ABOUT OUR CLINIC', 'Welcome to Simrik Dental Clinic',
+ 'Welcome to Simrik Dental Clinic where your journey to optimal oral health and a confident smile begins. Our team of experienced dentists is committed to providing personalized care in a warm and welcoming environment.',
+ 'Expert Care', 'Our team of skilled dental professionals at Simrik Dental Clinic is dedicated to providing expert care tailored to your individual needs.',
+ 'Personalized Approach', 'At Simrik Dental Clinic, we understand that every patient is unique, which is why we take a personalized approach to your dental care.',
  'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
  '/about')
 ON DUPLICATE KEY UPDATE section_heading=section_heading;
@@ -113,15 +113,15 @@ CREATE TABLE IF NOT EXISTS about_page_content (
 
 INSERT INTO about_page_content (id, section_heading, page_title, main_image_url, intro_paragraph, cta_banner_heading, cta_banner_text, cta_banner_link, why_heading, core_value_text, facilities_text, quality_text, final_cta_text, final_cta_link) VALUES
 (1, 'ABOUT', 'About Us', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
- 'Lagankhel Dental Clinic was founded with a vision to provide quality dental care. Located in Lagankhel, Lalitpur, we are a multi-specialty dental clinic offering orthodontic and comprehensive dental treatments. Our team is committed to delivering personalized care with modern technology in a comfortable environment.',
+ 'Simrik Dental Clinic was founded with a vision to provide quality dental care. Located in Lalitpur, we are a multi-specialty dental clinic offering orthodontic and comprehensive dental treatments. Our team is committed to delivering personalized care with modern technology in a comfortable environment.',
  'Invisalign SmileView simulation for your new smile!',
  'Just take a smiling selfie and we''ll show you what and how Invisalign treatment can do for you. Click here to try Invisalign SmileView right now.',
  'https://www.invisalign.com/smileview',
- 'Why Lagankhel Dental Clinic is the Best Dental Clinic in Lalitpur?',
+ 'Why Simrik Dental Clinic is the Best Dental Clinic in Lalitpur?',
  'We approach every patient''s problem with care. Our dental team is well-trained, experienced, and skillful. We provide a comfortable environment and conduct regular training sessions for a patient-friendly approach.',
  'Our clinic is equipped with modern tools and state-of-the-art technology. We maintain a sterile environment with infection control standards. We welcome all your queries and ensure a warm, reassuring experience.',
  'We follow a quality-first principle. Regardless of cost, we ensure you receive the best dental treatment. Best Dental Clinic In Lalitpur.',
- 'Need another reason? Just book an appointment with us and experience Lagankhel Dental Clinic yourself.',
+ 'Need another reason? Just book an appointment with us and experience Simrik Dental Clinic yourself.',
  '/contact')
 ON DUPLICATE KEY UPDATE section_heading=section_heading;
 
@@ -142,8 +142,8 @@ CREATE TABLE IF NOT EXISTS why_choose_content (
 
 INSERT INTO why_choose_content (id, section_heading, main_title, intro_text, feature1_title, feature1_desc, feature2_title, feature2_desc, feature3_title, feature3_desc, feature4_title, feature4_desc, feature5_title, feature5_desc, feature6_title, feature6_desc) VALUES
 (1, 'WHAT WE DO', 'Why Choose us?',
- 'At Lagankhel Dental Clinic, we believe in providing our patients with treatments which includes their involvement at all times. Our patients are the stars where we have set a standard, in providing a dental care with a feeling of being at home.',
- 'Comfort and Convenience', 'Your comfort and convenience are our top priorities at Lagankhel Dental Clinic. From our warm and inviting office environment to our flexible scheduling options',
+ 'At Simrik Dental Clinic, we believe in providing our patients with treatments which includes their involvement at all times. Our patients are the stars where we have set a standard, in providing a dental care with a feeling of being at home.',
+ 'Comfort and Convenience', 'Your comfort and convenience are our top priorities at Simrik Dental Clinic. From our warm and inviting office environment to our flexible scheduling options',
  'Customized Treatment Plans', 'We understand your smile is unique. We take the time to listen to your concerns and goals, crafting a personalized treatment plan to achieve your desired results.',
  'Modern Technology', 'Modern technology in dentistry has revolutionized patient care through advancements such as digital imaging, which provides precise and detailed visuals',
  'Affordable Service', 'We believe high-quality dentistry shouldn''t break the bank. We offer competitive rates and transparent pricing, so you can make informed decisions about your oral health.',
@@ -202,11 +202,11 @@ CREATE TABLE IF NOT EXISTS site_settings (
 );
 
 INSERT INTO site_settings (setting_key, setting_value) VALUES
-('clinic_name', 'Lagankhel Dental Clinic'),
+('clinic_name', 'Simrik Dental Clinic'),
 ('clinic_tagline', 'Your smile is our pride'),
 ('contact_phone', '+977 9800000000'),
 ('contact_landline', '01-1234567'),
-('contact_address', 'Lagankhel, Lalitpur, Nepal'),
+('contact_address', 'Lalitpur, Nepal'),
 ('opening_hours', 'Sunday - Friday, 10:00 AM - 7:00 PM'),
 ('map_embed_url', '')
 ON DUPLICATE KEY UPDATE setting_key=setting_key;
@@ -263,13 +263,13 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     content LONGTEXT NOT NULL,
     category VARCHAR(100),
     image_url VARCHAR(500),
-    author VARCHAR(255) DEFAULT 'Lagankhel Dental Clinic',
+    author VARCHAR(255) DEFAULT 'Simrik Dental Clinic',
     published TINYINT(1) DEFAULT 1,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 INSERT INTO blog_posts (title, slug, excerpt, content, category, image_url, author) VALUES
-('Jaw Alignment in Children for a Healthy Smile – Procedure & Benefits', 'jaw-alignment-children', 'A child''s oral development plays a crucial role in their overall health, facial growth, and confidence. Jaw alignment is an important aspect...', 'Full article content here.', 'Dental Braces', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600', 'Lagankhel Dental Clinic'),
-('Full Mouth Dental Implants for a Youthful Facial Appearance', 'full-mouth-dental-implants', 'A beautiful smile is more than just aesthetics—it plays a major role in defining facial structure, confidence, and overall personality...', 'Full article content here.', 'Dental Implants', 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600', 'Lagankhel Dental Clinic'),
-('Bleeding Gums vs Periodontitis: Key Differences, Symptoms & Treatment', 'bleeding-gums-vs-periodontitis', 'Gum health is a crucial part of overall oral hygiene, yet it is often ignored until symptoms become severe. Understanding the difference...', 'Full article content here.', 'Gum Treatment', 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600', 'Lagankhel Dental Clinic');
+('Jaw Alignment in Children for a Healthy Smile – Procedure & Benefits', 'jaw-alignment-children', 'A child''s oral development plays a crucial role in their overall health, facial growth, and confidence. Jaw alignment is an important aspect...', 'Full article content here.', 'Dental Braces', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600', 'Simrik Dental Clinic'),
+('Full Mouth Dental Implants for a Youthful Facial Appearance', 'full-mouth-dental-implants', 'A beautiful smile is more than just aesthetics—it plays a major role in defining facial structure, confidence, and overall personality...', 'Full article content here.', 'Dental Implants', 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600', 'Simrik Dental Clinic'),
+('Bleeding Gums vs Periodontitis: Key Differences, Symptoms & Treatment', 'bleeding-gums-vs-periodontitis', 'Gum health is a crucial part of overall oral hygiene, yet it is often ignored until symptoms become severe. Understanding the difference...', 'Full article content here.', 'Gum Treatment', 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600', 'Simrik Dental Clinic');

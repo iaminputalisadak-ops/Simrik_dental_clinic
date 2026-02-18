@@ -1,5 +1,5 @@
 -- Migration: Add before_after_cases table for existing databases
-USE lagankhel_dental;
+USE simrik_dental_clinic;
 
 CREATE TABLE IF NOT EXISTS before_after_cases (
     id INT AUTO_INCREMENT PRIMARY KEY,

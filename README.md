@@ -77,7 +77,7 @@ mysql -u root -p < database/schema.sql
 
 ```php
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'lagankhel_dental');
+define('DB_NAME', 'simrik_dental_clinic');
 define('DB_USER', 'root');
 define('DB_PASS', 'your_password');
 ```

@@ -15,9 +15,9 @@ $host = '127.0.0.1';
 $port = '3306';   // Change to 3308 if XAMPP/Laragon uses that for MySQL
 $user = 'root';
 $pass = '';       // Set your MySQL password if you have one
-$dbname = 'lagankhel_dental';
+$dbname = 'simrik_dental_clinic';
 
-echo "<h1>Lagankhel Dental Clinic – Database Setup</h1>";
+echo "<h1>Simrik Dental Clinic – Database Setup</h1>";
 
 $conn = @new mysqli($host, $user, $pass, '', (int) $port);
 

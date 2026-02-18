@@ -1,4 +1,4 @@
-USE lagankhel_dental;
+USE simrik_dental_clinic;
 
 CREATE TABLE IF NOT EXISTS dental_services (
     id INT AUTO_INCREMENT PRIMARY KEY,

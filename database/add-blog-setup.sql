@@ -1,4 +1,4 @@
-USE lagankhel_dental;
+USE simrik_dental_clinic;
 
 -- Add author column if not exists (run manually if you get error: ALTER TABLE blog_posts ADD COLUMN author VARCHAR(255) DEFAULT 'Lagankhel Dental Clinic';)
 -- Insert sample posts (ignore if slug exists)
