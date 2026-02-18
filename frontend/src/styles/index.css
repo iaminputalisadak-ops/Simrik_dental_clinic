@@ -418,8 +418,40 @@ a:hover {
   .about-section-new .about-right { order: -1; }
 }
 
-/* About Page (full page - House of Dentistry style) */
+/* About Page (full page - reference style with hero + footer CTA) */
+.about-hero {
+  position: relative;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+}
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+}
+.about-hero-inner { position: relative; z-index: 1; }
+.about-hero-pill {
+  display: inline-block;
+  background: #336699;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+.about-hero-title { margin: 0 0 0.5rem 0; color: white; font-family: var(--font-display); }
+.about-hero-title-line1 { display: block; font-size: 1.5rem; font-weight: 600; }
+.about-hero-title-line2 { display: block; font-size: 2.25rem; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.about-hero-tagline { color: rgba(255,255,255,0.95); font-size: 1.1rem; margin: 0; max-width: 520px; }
+
 .about-page-full .section-subtitle { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.15em; }
+.about-intro-section { padding: 4rem 0; background: var(--bg); }
 .about-intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -427,7 +459,7 @@ a:hover {
   align-items: start;
 }
 .about-intro-text { max-width: 560px; }
-.about-page-title { font-family: var(--font-display); font-size: 2.25rem; color: var(--primary-dark); margin-bottom: 1rem; }
+.about-page-title { font-family: var(--font-display); font-size: 2.25rem; color: #336699; margin-bottom: 1rem; font-weight: 700; }
 .about-intro-p { color: var(--text); line-height: 1.7; }
 .about-intro-image img {
   width: 100%;
@@ -445,17 +477,47 @@ a:hover {
 .about-cta-banner h2 { font-size: 1.5rem; color: white; margin-bottom: 0.75rem; font-weight: 700; }
 .about-cta-banner p { color: rgba(255,255,255,0.95); font-size: 1rem; }
 .about-cta-banner a { color: white; text-decoration: underline; font-weight: 600; }
-.about-detail-section { padding: 4rem 0; }
-.about-why-heading { font-family: var(--font-display); font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 1rem; }
+.about-detail-section { padding: 4rem 0; background: var(--bg); }
+.about-why-heading { font-family: var(--font-display); font-size: 1.5rem; color: #336699; margin-bottom: 1rem; font-weight: 700; }
 .about-repeat-intro { color: var(--text); margin-bottom: 1.5rem; line-height: 1.7; }
 .about-block { padding-left: 1.25rem; margin: 1.5rem 0; }
-.about-block-blue { border-left: 4px solid var(--primary); }
+.about-block-blue { border-left: 4px solid #336699; }
 .about-block p { margin: 0; line-height: 1.7; color: var(--text); }
-.about-block .btn-primary { margin-top: 1rem; }
 .about-paragraph { color: var(--text); margin-bottom: 1rem; line-height: 1.7; }
+.about-final-cta-text { color: var(--text); margin: 1.5rem 0; font-size: 1.05rem; }
+
+.about-footer-cta {
+  background: #336699;
+  padding: 2.5rem 1.5rem;
+  color: white;
+}
+.about-footer-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.about-footer-cta-content { display: flex; align-items: flex-start; gap: 1.25rem; }
+.about-footer-cta-icon { font-size: 2.5rem; line-height: 1; }
+.about-footer-cta-title { color: white; font-size: 1.5rem; margin: 0 0 0.5rem 0; font-weight: 700; }
+.about-footer-cta-desc { color: rgba(255,255,255,0.95); margin: 0; font-size: 1rem; line-height: 1.6; max-width: 480px; }
+.btn-about-book {
+  display: inline-block;
+  background: #22c55e;
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-about-book:hover { background: #16a34a; color: white; }
+
 @media (max-width: 900px) {
   .about-intro-grid { grid-template-columns: 1fr; }
   .about-intro-image { order: -1; }
+  .about-footer-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 
 /* Why Choose Us */

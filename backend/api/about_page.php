@@ -32,10 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $data = json_decode(file_get_contents('php://input'), true) ?? $_POST;
     try {
         $pdo = getDBConnection();
-        $stmt = $pdo->prepare("UPDATE about_page_content SET section_heading=?, page_title=?, main_image_url=?, intro_paragraph=?, cta_banner_heading=?, cta_banner_text=?, cta_banner_link=?, why_heading=?, core_value_text=?, facilities_text=?, quality_text=?, final_cta_text=?, final_cta_link=? WHERE id=1");
+        $stmt = $pdo->prepare("UPDATE about_page_content SET section_heading=?, page_title=?, hero_pill_text=?, hero_clinic_name=?, hero_tagline=?, hero_background_image=?, main_image_url=?, intro_paragraph=?, cta_banner_heading=?, cta_banner_text=?, cta_banner_link=?, why_heading=?, core_value_text=?, facilities_text=?, quality_text=?, final_cta_text=?, final_cta_link=?, footer_cta_title=?, footer_cta_description=? WHERE id=1");
         $stmt->execute([
             $data['section_heading'] ?? '',
             $data['page_title'] ?? '',
+            $data['hero_pill_text'] ?? '',
+            $data['hero_clinic_name'] ?? '',
+            $data['hero_tagline'] ?? '',
+            $data['hero_background_image'] ?? '',
             $data['main_image_url'] ?? '',
             $data['intro_paragraph'] ?? '',
             $data['cta_banner_heading'] ?? '',
@@ -46,7 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $data['facilities_text'] ?? '',
             $data['quality_text'] ?? '',
             $data['final_cta_text'] ?? '',
-            $data['final_cta_link'] ?? '/contact'
+            $data['final_cta_link'] ?? '/contact',
+            $data['footer_cta_title'] ?? '',
+            $data['footer_cta_description'] ?? ''
         ]);
         echo json_encode(['success' => true, 'message' => 'About page updated']);
     } catch (Exception $e) {

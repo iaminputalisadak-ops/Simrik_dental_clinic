@@ -96,6 +96,10 @@ CREATE TABLE IF NOT EXISTS about_page_content (
     id INT PRIMARY KEY DEFAULT 1,
     section_heading VARCHAR(100) DEFAULT 'ABOUT',
     page_title VARCHAR(255) DEFAULT 'About Us',
+    hero_pill_text VARCHAR(100) DEFAULT '# Dental Hospital',
+    hero_clinic_name VARCHAR(255) DEFAULT 'Simrik Dental Clinic',
+    hero_tagline VARCHAR(255) DEFAULT 'Offering Quality Dental Services With Zero Compromise',
+    hero_background_image VARCHAR(500),
     main_image_url VARCHAR(500),
     intro_paragraph TEXT,
     cta_banner_heading VARCHAR(255),
@@ -107,12 +111,15 @@ CREATE TABLE IF NOT EXISTS about_page_content (
     quality_text TEXT,
     final_cta_text TEXT,
     final_cta_link VARCHAR(255) DEFAULT '/contact',
+    footer_cta_title VARCHAR(255) DEFAULT 'Book Your Appointment',
+    footer_cta_description TEXT,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CHECK (id = 1)
 );
 
-INSERT INTO about_page_content (id, section_heading, page_title, main_image_url, intro_paragraph, cta_banner_heading, cta_banner_text, cta_banner_link, why_heading, core_value_text, facilities_text, quality_text, final_cta_text, final_cta_link) VALUES
-(1, 'ABOUT', 'About Us', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
+INSERT INTO about_page_content (id, section_heading, page_title, hero_pill_text, hero_clinic_name, hero_tagline, hero_background_image, main_image_url, intro_paragraph, cta_banner_heading, cta_banner_text, cta_banner_link, why_heading, core_value_text, facilities_text, quality_text, final_cta_text, final_cta_link, footer_cta_title, footer_cta_description) VALUES
+(1, 'ABOUT', 'About Us', '# Dental Hospital', 'Simrik Dental Clinic', 'Offering Quality Dental Services With Zero Compromise', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920',
+ 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
  'Simrik Dental Clinic was founded with a vision to provide quality dental care. Located in Lalitpur, we are a multi-specialty dental clinic offering orthodontic and comprehensive dental treatments. Our team is committed to delivering personalized care with modern technology in a comfortable environment.',
  'Invisalign SmileView simulation for your new smile!',
  'Just take a smiling selfie and we''ll show you what and how Invisalign treatment can do for you. Click here to try Invisalign SmileView right now.',
@@ -122,7 +129,9 @@ INSERT INTO about_page_content (id, section_heading, page_title, main_image_url,
  'Our clinic is equipped with modern tools and state-of-the-art technology. We maintain a sterile environment with infection control standards. We welcome all your queries and ensure a warm, reassuring experience.',
  'We follow a quality-first principle. Regardless of cost, we ensure you receive the best dental treatment. Best Dental Clinic In Lalitpur.',
  'Need another reason? Just book an appointment with us and experience Simrik Dental Clinic yourself.',
- '/contact')
+ '/contact',
+ 'Book Your Appointment',
+ 'Prioritize your oral health with our General Dentistry services. Schedule your appointment today. Our dedicated team is here to ensure your smile stays bright and healthy.')
 ON DUPLICATE KEY UPDATE section_heading=section_heading;
 
 -- Why Choose Us section (editable by admin)

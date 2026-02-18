@@ -6,10 +6,11 @@ const API_URL = '/api';
 
 export default function AdminAboutPage() {
   const [content, setContent] = useState({
-    section_heading: '', page_title: '', main_image_url: '', intro_paragraph: '',
+    section_heading: '', page_title: '', hero_pill_text: '', hero_clinic_name: '', hero_tagline: '', hero_background_image: '',
+    main_image_url: '', intro_paragraph: '',
     cta_banner_heading: '', cta_banner_text: '', cta_banner_link: '',
     why_heading: '', core_value_text: '', facilities_text: '', quality_text: '',
-    final_cta_text: '', final_cta_link: ''
+    final_cta_text: '', final_cta_link: '', footer_cta_title: '', footer_cta_description: ''
   });
   const [message, setMessage] = useState({ type: '', text: '' });
   const [loading, setLoading] = useState(true);
@@ -46,6 +47,15 @@ export default function AdminAboutPage() {
       <h2>About Page</h2>
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <form className="admin-form" onSubmit={handleSubmit}>
+        <h4>Hero (top banner)</h4>
+        <label>Hero pill text</label>
+        <input value={content.hero_pill_text || ''} onChange={e => setContent({ ...content, hero_pill_text: e.target.value })} placeholder="# Dental Hospital" />
+        <label>Hero clinic name (second line)</label>
+        <input value={content.hero_clinic_name || ''} onChange={e => setContent({ ...content, hero_clinic_name: e.target.value })} placeholder="Simrik Dental Clinic" />
+        <label>Hero tagline</label>
+        <input value={content.hero_tagline || ''} onChange={e => setContent({ ...content, hero_tagline: e.target.value })} placeholder="Offering Quality Dental Services..." />
+        <ImageUpload value={content.hero_background_image || ''} onChange={v => setContent({ ...content, hero_background_image: v })} label="Hero background image" prefix="aphero" />
+        <h4>About Us section</h4>
         <label>Section Heading</label>
         <input value={content.section_heading} onChange={e => setContent({ ...content, section_heading: e.target.value })} />
         <label>Page Title</label>
@@ -69,11 +79,16 @@ export default function AdminAboutPage() {
         <textarea value={content.facilities_text} onChange={e => setContent({ ...content, facilities_text: e.target.value })} rows="3" />
         <label>Quality Paragraph</label>
         <textarea value={content.quality_text} onChange={e => setContent({ ...content, quality_text: e.target.value })} rows="2" />
-        <h4>Final CTA</h4>
+        <h4>Final CTA (bold line above footer)</h4>
         <label>Final CTA Text</label>
         <textarea value={content.final_cta_text} onChange={e => setContent({ ...content, final_cta_text: e.target.value })} rows="2" />
         <label>Final CTA Link</label>
         <input value={content.final_cta_link} onChange={e => setContent({ ...content, final_cta_link: e.target.value })} />
+        <h4>Footer CTA (dark blue bar)</h4>
+        <label>Footer CTA Title</label>
+        <input value={content.footer_cta_title || ''} onChange={e => setContent({ ...content, footer_cta_title: e.target.value })} placeholder="Book Your Appointment" />
+        <label>Footer CTA Description</label>
+        <textarea value={content.footer_cta_description || ''} onChange={e => setContent({ ...content, footer_cta_description: e.target.value })} rows="3" placeholder="Prioritize your oral health..." />
         <button type="submit" className="btn-primary">Save</button>
       </form>
     </div>
