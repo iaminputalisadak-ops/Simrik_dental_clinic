@@ -6,10 +6,10 @@ import About from './pages/About';
 import Treatments from './pages/Treatments';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BeforeAfter from './pages/BeforeAfter';
 
-const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const BeforeAfter = lazy(() => import('./pages/BeforeAfter'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 

@@ -4,13 +4,10 @@ import { Link } from 'react-router-dom';
 const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
-  { 
-    path: '/treatments', 
-    label: 'Treatments',
-  },
+  { path: '/treatments', label: 'Treatments' },
   { path: '/gallery', label: 'Gallery' },
   { path: '/before-after', label: 'Before-After' },
-  { path: '/blog', label: 'Blog' },
+  { path: '/blog', label: 'Blog', prefetch: () => import('../pages/BlogPost') },
   { path: '/contact', label: 'Contact Us' },
 ];
 
@@ -30,6 +27,7 @@ export default function Header() {
               key={link.path}
               to={link.path}
               className="nav-link"
+              onMouseEnter={() => link.prefetch?.()}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}

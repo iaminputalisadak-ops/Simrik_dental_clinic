@@ -16,16 +16,15 @@ function formatDate(d) {
 }
 
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(DEFAULT_POSTS);
 
   useEffect(() => {
     fetch(`${API_URL}/blog.php`)
       .then(res => res.json())
       .then(data => {
         if (data.success && data.posts?.length) setPosts(data.posts);
-        else setPosts(DEFAULT_POSTS);
       })
-      .catch(() => setPosts(DEFAULT_POSTS));
+      .catch(() => {});
   }, []);
 
   return (
