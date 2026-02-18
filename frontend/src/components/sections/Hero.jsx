@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const API_URL = '/api';
 const DEFAULT_SLIDE = {
   subtitle: 'YOUR SMILE IS OUR PRIDE',
-  title: 'Lagankhel Dental Clinic',
+  title: 'Simrik Dental Clinic',
   tagline: 'Best Dental Clinic in Lalitpur',
   background_image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920',
   overlay_opacity: 0.5,

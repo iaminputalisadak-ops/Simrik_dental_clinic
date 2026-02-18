@@ -38,7 +38,7 @@ export default function AdminLogin() {
     <div className="admin-login-page">
       <div className="admin-login-card">
         <h1>Admin Login</h1>
-        <p className="admin-login-sub">Lagankhel Dental Clinic</p>
+        <p className="admin-login-sub">Simrik Dental Clinic</p>
         {error && <div className="form-message error">{error}</div>}
         <form onSubmit={handleSubmit}>
           <input

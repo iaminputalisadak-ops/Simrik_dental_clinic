@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero Banner API - Lagankhel Dental Clinic
+ * Hero Banner API - Simrik Dental Clinic
  */
 
 header('Content-Type: application/json');

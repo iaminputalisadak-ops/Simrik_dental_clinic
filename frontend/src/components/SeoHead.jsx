@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://lagankheldental.com';
+const SITE_URL = 'https://simrikdental.com';
 
 const stripHtml = (html) => {
   if (!html || typeof html !== 'string') return '';
@@ -16,9 +16,9 @@ export default function SeoHead({
   type = 'website',
   noindex = false
 }) {
-  const fullTitle = title ? `${title} | Lagankhel Dental Clinic` : 'Lagankhel Dental Clinic | Best Dental Clinic in Lalitpur';
+  const fullTitle = title ? `${title} | Simrik Dental Clinic` : 'Simrik Dental Clinic | Best Dental Clinic in Lalitpur';
   const fullUrl = path ? `${SITE_URL}${path.startsWith('/') ? path : '/' + path}` : SITE_URL;
-  const fullDesc = (description ? stripHtml(description) : '') || 'Lagankhel Dental Clinic - Best Dental Clinic in Lalitpur. Your smile is our pride. Quality dental care with experienced professionals.';
+  const fullDesc = (description ? stripHtml(description) : '') || 'Simrik Dental Clinic - Best Dental Clinic in Lalitpur. Your smile is our pride. Quality dental care with experienced professionals.';
 
   return (
     <Helmet>
@@ -32,7 +32,7 @@ export default function SeoHead({
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={image} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Lagankhel Dental Clinic" />
+      <meta property="og:site_name" content="Simrik Dental Clinic" />
       <meta property="og:locale" content="en_US" />
 
       <meta name="twitter:card" content="summary_large_image" />

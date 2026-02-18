@@ -4,7 +4,7 @@ import BookAppointmentModal from '../components/BookAppointmentModal';
 
 const API_URL = '/api';
 const DEFAULT = {
-  contact_address: 'Lagankhel, Lalitpur, Nepal',
+  contact_address: 'Lalitpur, Nepal',
   contact_phone: '+977 9800000000',
   contact_landline: '01-1234567',
   opening_hours: 'Sunday - Friday, 10:00 AM - 7:00 PM',
@@ -56,7 +56,7 @@ export default function Contact() {
 
   return (
     <div className="page contact-page">
-      <SeoHead title="Contact Us" description="Contact Lagankhel Dental Clinic in Lalitpur. Call us, visit our clinic, or book an appointment online. We're here for your dental care." path="/contact" />
+      <SeoHead title="Contact Us" description="Contact Simrik Dental Clinic in Lalitpur. Call us, visit our clinic, or book an appointment online. We're here for your dental care." path="/contact" />
       <section className="page-hero">
         <div className="container">
           <h1>Contact Us</h1>

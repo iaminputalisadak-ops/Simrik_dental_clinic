@@ -1,5 +1,5 @@
 {
-  "name": "lagankhel-dental-clinic",
+  "name": "simrik-dental-clinic",
   "private": true,
   "scripts": {
     "dev": "concurrently -n php,react -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",

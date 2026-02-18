@@ -18,7 +18,7 @@ export default function Treatments() {
 
   return (
     <div className="page treatments-page">
-      <SeoHead title="Treatments" description="Dental treatments at Lagankhel Dental Clinic: Orthodontics, Root Canal, Oral Surgery, Cosmetic Dentistry, Implants, Gum Treatment. Quality care in Lalitpur." path="/treatments" />
+      <SeoHead title="Treatments" description="Dental treatments at Simrik Dental Clinic: Orthodontics, Root Canal, Oral Surgery, Cosmetic Dentistry, Implants, Gum Treatment. Quality care in Lalitpur." path="/treatments" />
       <section className="page-hero">
         <div className="container">
           <h1>Our Dental Treatments</h1>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const API_URL = '/api';
 const DEFAULT_POSTS = [
-  { title: 'Jaw Alignment in Children for a Healthy Smile', date: 'February 15, 2026', category: 'Dental Braces', excerpt: 'A child\'s oral development plays a crucial role...', image_url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600', author: 'Lagankhel Dental Clinic' },
-  { title: 'Full Mouth Dental Implants for a Youthful Facial Appearance', date: 'February 15, 2026', category: 'Dental Implants', excerpt: 'A beautiful smile is more than just aesthetics...', image_url: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600', author: 'Lagankhel Dental Clinic' },
-  { title: 'Bleeding Gums vs Periodontitis: Key Differences', date: 'February 15, 2026', category: 'Gum Treatment', excerpt: 'Gum health is a crucial part of overall oral hygiene...', image_url: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600', author: 'Lagankhel Dental Clinic' },
+  { title: 'Jaw Alignment in Children for a Healthy Smile', date: 'February 15, 2026', category: 'Dental Braces', excerpt: 'A child\'s oral development plays a crucial role...', image_url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600', author: 'Simrik Dental Clinic' },
+  { title: 'Full Mouth Dental Implants for a Youthful Facial Appearance', date: 'February 15, 2026', category: 'Dental Implants', excerpt: 'A beautiful smile is more than just aesthetics...', image_url: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600', author: 'Simrik Dental Clinic' },
+  { title: 'Bleeding Gums vs Periodontitis: Key Differences', date: 'February 15, 2026', category: 'Gum Treatment', excerpt: 'Gum health is a crucial part of overall oral hygiene...', image_url: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600', author: 'Simrik Dental Clinic' },
 ];
 
 function formatDate(d) {

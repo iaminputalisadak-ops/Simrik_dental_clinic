@@ -1,6 +1,6 @@
 <?php
 /**
- * Appointment API - Lagankhel Dental Clinic
+ * Appointment API - Simrik Dental Clinic
  */
 
 header('Content-Type: application/json');

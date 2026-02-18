@@ -1,4 +1,4 @@
-# Lagankhel Dental Clinic Website
+# Simrik Dental Clinic Website
 
 A dental clinic website inspired by [House of Dentistry](https://houseofdentistry.in/), built with **React.js**, **PHP**, **MySQL**, and **JavaScript**.
 
@@ -16,7 +16,7 @@ A dental clinic website inspired by [House of Dentistry](https://houseofdentistr
 ## Project Structure
 
 ```
-Lagankhel Dental Clinic/
+Simrik Dental Clinic/
 ├── frontend/          # React (Vite) application
 │   ├── src/
 │   │   ├── components/

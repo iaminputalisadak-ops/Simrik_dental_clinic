@@ -11,22 +11,23 @@ const DEFAULT_IMAGES = [
   'https://images.unsplash.com/photo-1629909615782-3a4c1b24a8f2?w=600',
 ];
 
+const defaultImageList = DEFAULT_IMAGES.map((url, i) => ({ image_url: url, title: `Clinic ${i + 1}` }));
+
 export default function Gallery() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState(defaultImageList);
 
   useEffect(() => {
     fetch(`${API_URL}/gallery.php`)
       .then(res => res.json())
       .then(data => {
         if (data.success && data.images?.length) setImages(data.images);
-        else setImages(DEFAULT_IMAGES.map((url, i) => ({ image_url: url, title: `Clinic ${i + 1}` })));
       })
-      .catch(() => setImages(DEFAULT_IMAGES.map((url, i) => ({ image_url: url, title: `Clinic ${i + 1}` }))));
+      .catch(() => {});
   }, []);
 
   return (
     <div className="page gallery-page">
-      <SeoHead title="Gallery" description="View photos of Lagankhel Dental Clinic - our facilities, equipment, and patient care environment in Lalitpur." path="/gallery" />
+      <SeoHead title="Gallery" description="View photos of Simrik Dental Clinic - our facilities, equipment, and patient care environment in Lalitpur." path="/gallery" />
       <section className="page-hero">
         <div className="container">
           <h1>Gallery</h1>

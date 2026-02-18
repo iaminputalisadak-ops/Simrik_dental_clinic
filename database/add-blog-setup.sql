@@ -1,6 +1,6 @@
 USE simrik_dental_clinic;
 
--- Add author column if not exists (run manually if you get error: ALTER TABLE blog_posts ADD COLUMN author VARCHAR(255) DEFAULT 'Lagankhel Dental Clinic';)
+-- Add author column if not exists (run manually if you get error: ALTER TABLE blog_posts ADD COLUMN author VARCHAR(255) DEFAULT 'Simrik Dental Clinic';)
 -- Insert sample posts (ignore if slug exists)
 INSERT IGNORE INTO blog_posts (title, slug, excerpt, content, category, image_url, published) VALUES
 ('Jaw Alignment in Children for a Healthy Smile', 'jaw-alignment-children', 'A child''s oral development plays a crucial role in their overall health, facial growth, and confidence. Jaw alignment is an important aspect...', 'Full article content here.', 'Dental Braces', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600', 1),

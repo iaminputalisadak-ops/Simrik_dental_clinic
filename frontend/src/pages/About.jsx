@@ -9,15 +9,15 @@ const DEFAULT = {
   section_heading: 'ABOUT',
   page_title: 'About Us',
   main_image_url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
-  intro_paragraph: 'Lagankhel Dental Clinic is a multi-specialty dental clinic committed to quality care.',
+  intro_paragraph: 'Simrik Dental Clinic is a multi-specialty dental clinic committed to quality care.',
   cta_banner_heading: 'Invisalign SmileView simulation for your new smile!',
   cta_banner_text: 'Just take a smiling selfie and we\'ll show you what Invisalign can do. Click here to try Invisalign SmileView.',
   cta_banner_link: 'https://www.invisalign.com/smileview',
-  why_heading: 'Why Lagankhel Dental Clinic is the Best Dental Clinic in Lalitpur?',
+  why_heading: 'Why Simrik Dental Clinic is the Best Dental Clinic in Lalitpur?',
   core_value_text: 'We approach every patient\'s problem with care. Our dental team is well-trained, experienced, and skillful.',
   facilities_text: 'Our clinic is equipped with modern tools and state-of-the-art technology. We maintain a sterile environment.',
   quality_text: 'We follow a quality-first principle. Best Dental Clinic In Lalitpur.',
-  final_cta_text: 'Need another reason? Just book an appointment with us and experience Lagankhel Dental Clinic yourself.',
+  final_cta_text: 'Need another reason? Just book an appointment with us and experience Simrik Dental Clinic yourself.',
   final_cta_link: '/contact'
 };
 
@@ -38,7 +38,7 @@ export default function About() {
 
   return (
     <div className="page about-page about-page-full">
-      <SeoHead title="About Us" description="Learn about Lagankhel Dental Clinic - our team, values, and commitment to quality dental care in Lalitpur." path="/about" />
+      <SeoHead title="About Us" description="Learn about Simrik Dental Clinic - our team, values, and commitment to quality dental care in Lalitpur." path="/about" />
       <section className="section about-intro-section">
         <div className="container">
           <div className="about-intro-grid">

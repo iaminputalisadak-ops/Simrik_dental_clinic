@@ -3,7 +3,7 @@ set MYSQL="C:\xampp\mysql\bin\mysql.exe"
 set SCHEMA=%~dp0schema.sql
 
 echo ============================================
-echo  Lagankhel Dental Clinic - Database Setup
+echo  Simrik Dental Clinic - Database Setup
 echo ============================================
 echo.
 
@@ -22,7 +22,7 @@ echo Importing database...
 %MYSQL% -u root -P 3308 < "%SCHEMA%" 2>nul
 if %errorlevel% equ 0 (
     echo.
-    echo [OK] Database 'lagankhel_dental' created successfully!
+    echo [OK] Database 'simrik_dental_clinic' created successfully!
     echo      Login: admin / admin123
     echo.
 ) else (

@@ -3,13 +3,13 @@ import { Helmet } from 'react-helmet-async';
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Lagankhel Dental Clinic',
+  name: 'Simrik Dental Clinic',
   description: 'Best Dental Clinic in Lalitpur. Quality dental care including orthodontics, root canal, cosmetic dentistry, and more. Your smile is our pride.',
-  url: 'https://lagankheldental.com',
+  url: 'https://simrikdental.com',
   telephone: '+977 9800000000',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Lagankhel',
+    streetAddress: 'Lalitpur',
     addressLocality: 'Lalitpur',
     addressCountry: 'NP'
   },

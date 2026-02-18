@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const API_URL = '/api';
 const DEFAULT = {
   section_heading: 'ABOUT OUR CLINIC',
-  main_title: 'Welcome to Lagankhel Dental Clinic',
-  intro_text: 'Welcome to Lagankhel Dental Clinic where your journey to optimal oral health and a confident smile begins. Our team of experienced dentists is committed to providing personalized care in a warm and welcoming environment.',
+  main_title: 'Welcome to Simrik Dental Clinic',
+  intro_text: 'Welcome to Simrik Dental Clinic where your journey to optimal oral health and a confident smile begins. Our team of experienced dentists is committed to providing personalized care in a warm and welcoming environment.',
   feature1_title: 'Expert Care',
-  feature1_desc: 'Our team of skilled dental professionals at Lagankhel Dental Clinic is dedicated to providing expert care tailored to your individual needs.',
+  feature1_desc: 'Our team of skilled dental professionals at Simrik Dental Clinic is dedicated to providing expert care tailored to your individual needs.',
   feature2_title: 'Personalized Approach',
-  feature2_desc: 'At Lagankhel Dental Clinic, we understand that every patient is unique, which is why we take a personalized approach to your dental care.',
+  feature2_desc: 'At Simrik Dental Clinic, we understand that every patient is unique, which is why we take a personalized approach to your dental care.',
   image_url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
   read_more_link: '/about'
 };

@@ -48,7 +48,7 @@ export default function Services({ initialServices }) {
           ))}
         </div>
         <p className="services-footer">
-          Welcome to Lagankhel Dental Clinic where your journey to optimal oral health and a confident smile begins.
+          Welcome to Simrik Dental Clinic where your journey to optimal oral health and a confident smile begins.
         </p>
         <Link to="/contact" className="btn-primary">Book Appointment</Link>
       </div>

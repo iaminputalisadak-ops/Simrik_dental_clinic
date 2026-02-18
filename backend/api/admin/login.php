@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin Login API - Lagankhel Dental Clinic
+ * Admin Login API - Simrik Dental Clinic
  */
 
 header('Content-Type: application/json');

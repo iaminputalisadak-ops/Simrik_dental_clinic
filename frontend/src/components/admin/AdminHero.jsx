@@ -63,7 +63,7 @@ export default function AdminHero() {
     setEditing(null);
     setForm({
       subtitle: 'YOUR SMILE IS OUR PRIDE',
-      title: 'Lagankhel Dental Clinic',
+      title: 'Simrik Dental Clinic',
       tagline: 'Best Dental Clinic in Lalitpur',
       background_image: '',
       overlay_opacity: 0.5,

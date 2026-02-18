@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 $data['content'] ?? '',
                 $data['category'] ?? '',
                 $data['image_url'] ?? '',
-                $data['author'] ?? 'Lagankhel Dental Clinic',
+                $data['author'] ?? 'Simrik Dental Clinic',
                 isset($data['published']) ? (int)$data['published'] : 1,
                 $data['id']
             ]);
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 $data['content'] ?? '',
                 $data['category'] ?? '',
                 $data['image_url'] ?? '',
-                $data['author'] ?? 'Lagankhel Dental Clinic',
+                $data['author'] ?? 'Simrik Dental Clinic',
                 isset($data['published']) ? (int)$data['published'] : 1
             ]);
             echo json_encode(['success' => true, 'message' => 'Post added', 'id' => $pdo->lastInsertId()]);

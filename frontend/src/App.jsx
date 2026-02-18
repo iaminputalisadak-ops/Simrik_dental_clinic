@@ -1,14 +1,14 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Treatments from './pages/Treatments';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
 
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Treatments = lazy(() => import('./pages/Treatments'));
-const Gallery = lazy(() => import('./pages/Gallery'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const Contact = lazy(() => import('./pages/Contact'));
 const BeforeAfter = lazy(() => import('./pages/BeforeAfter'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));

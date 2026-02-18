@@ -18,7 +18,7 @@ export default function BeforeAfter() {
 
   return (
     <div className="page before-after-page">
-      <SeoHead title="Before-After Cases" description="View before and after dental treatment results from Lagankhel Dental Clinic. Real patient stories and beautiful smiles we create in Lalitpur." path="/before-after" />
+      <SeoHead title="Before-After Cases" description="View before and after dental treatment results from Simrik Dental Clinic. Real patient stories and beautiful smiles we create in Lalitpur." path="/before-after" />
       <section className="before-after-banner">
         <h1>Before - After Cases</h1>
       </section>

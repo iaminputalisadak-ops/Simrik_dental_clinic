@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col footer-about">
-              <h3>Lagankhel Dental Clinic</h3>
+              <h3>Simrik Dental Clinic</h3>
               <p>
                 Our clinic is dedicated to providing compassionate care and state-of-the-art 
                 treatments to help you achieve optimal oral health and confidence in your smile.
@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="footer-col">
               <h4>Get in Touch</h4>
               <div className="footer-contact">
-                <p><strong>Our Location</strong><br />Lagankhel, Lalitpur, Nepal</p>
+                <p><strong>Our Location</strong><br />Lalitpur, Nepal</p>
                 <p><strong>Call Today</strong><br /><a href="tel:+9779800000000">+977 9800000000</a></p>
                 <p><strong>Landline</strong><br />01-1234567</p>
                 <p><strong>Opening Hours</strong><br />Sunday - Friday<br />10:00 AM - 7:00 PM</p>
@@ -54,7 +54,7 @@ export default function Footer() {
       
       <div className="footer-bottom">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Lagankhel Dental Clinic. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Simrik Dental Clinic. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

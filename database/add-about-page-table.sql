@@ -22,14 +22,14 @@ CREATE TABLE IF NOT EXISTS about_page_content (
 
 INSERT INTO about_page_content (id, section_heading, page_title, main_image_url, intro_paragraph, cta_banner_heading, cta_banner_text, cta_banner_link, why_heading, core_value_text, facilities_text, quality_text, final_cta_text, final_cta_link) VALUES
 (1, 'ABOUT', 'About Us', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800',
- 'Lagankhel Dental Clinic was founded with a vision to provide quality dental care. Located in Lagankhel, Lalitpur, we are a multi-specialty dental clinic offering orthodontic and comprehensive dental treatments.',
+ 'Simrik Dental Clinic was founded with a vision to provide quality dental care. Located in Lalitpur, we are a multi-specialty dental clinic offering orthodontic and comprehensive dental treatments.',
  'Invisalign SmileView simulation for your new smile!',
  'Just take a smiling selfie and we''ll show you what and how Invisalign treatment can do for you. Click here to try Invisalign SmileView right now.',
  'https://www.invisalign.com/smileview',
- 'Why Lagankhel Dental Clinic is the Best Dental Clinic in Lalitpur?',
+ 'Why Simrik Dental Clinic is the Best Dental Clinic in Lalitpur?',
  'We approach every patient''s problem with care. Our dental team is well-trained, experienced, and skillful.',
  'Our clinic is equipped with modern tools and state-of-the-art technology. We maintain a sterile environment.',
  'We follow a quality-first principle. Best Dental Clinic In Lalitpur.',
- 'Need another reason? Just book an appointment with us and experience Lagankhel Dental Clinic yourself.',
+ 'Need another reason? Just book an appointment with us and experience Simrik Dental Clinic yourself.',
  '/contact')
 ON DUPLICATE KEY UPDATE section_heading=section_heading;

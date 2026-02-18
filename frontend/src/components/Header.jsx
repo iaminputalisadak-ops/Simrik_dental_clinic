@@ -21,7 +21,7 @@ export default function Header() {
     <header className="header">
       <div className="header-inner">
         <Link to="/" className="logo">
-          Lagankhel Dental Clinic
+          Simrik Dental Clinic
         </Link>
         
         <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>

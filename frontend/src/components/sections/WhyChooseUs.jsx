@@ -4,8 +4,8 @@ const API_URL = '/api';
 const DEFAULT = {
   section_heading: 'WHAT WE DO',
   main_title: 'Why Choose us?',
-  intro_text: 'At Lagankhel Dental Clinic, we believe in providing our patients with treatments which includes their involvement at all times. Our patients are the stars where we have set a standard, in providing a dental care with a feeling of being at home.',
-  feature1_title: 'Comfort and Convenience', feature1_desc: 'Your comfort and convenience are our top priorities at Lagankhel Dental Clinic. From our warm and inviting office environment to our flexible scheduling options',
+  intro_text: 'At Simrik Dental Clinic, we believe in providing our patients with treatments which includes their involvement at all times. Our patients are the stars where we have set a standard, in providing a dental care with a feeling of being at home.',
+  feature1_title: 'Comfort and Convenience', feature1_desc: 'Your comfort and convenience are our top priorities at Simrik Dental Clinic. From our warm and inviting office environment to our flexible scheduling options',
   feature2_title: 'Customized Treatment Plans', feature2_desc: 'We understand your smile is unique. We take the time to listen to your concerns and goals, crafting a personalized treatment plan to achieve your desired results.',
   feature3_title: 'Modern Technology', feature3_desc: 'Modern technology in dentistry has revolutionized patient care through advancements such as digital imaging, which provides precise and detailed visuals',
   feature4_title: 'Affordable Service', feature4_desc: 'We believe high-quality dentistry shouldn\'t break the bank. We offer competitive rates and transparent pricing, so you can make informed decisions about your oral health.',
@@ -87,7 +87,7 @@ export default function WhyChooseUs({ initialContent }) {
         <p className="section-subtitle">{content.section_heading}</p>
         <h2 className="section-title">{content.main_title}</h2>
         <p className="why-intro" dangerouslySetInnerHTML={{
-          __html: (content.intro_text || '').replace(/Lagankhel Dental Clinic/g, '<strong>Lagankhel Dental Clinic</strong>')
+          __html: (content.intro_text || '').replace(/Simrik Dental Clinic/g, '<strong>Simrik Dental Clinic</strong>')
         }} />
         <div className="why-features-grid">
           {features.map((f, i) => (

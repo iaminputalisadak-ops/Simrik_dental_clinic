@@ -8,7 +8,7 @@ export default function AdminBlog() {
   const [posts, setPosts] = useState([]);
   const [editing, setEditing] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ title: '', slug: '', excerpt: '', content: '', category: '', image_url: '', author: 'Lagankhel Dental Clinic', published: 1 });
+  const [form, setForm] = useState({ title: '', slug: '', excerpt: '', content: '', category: '', image_url: '', author: 'Simrik Dental Clinic', published: 1 });
   const [message, setMessage] = useState({ type: '', text: '' });
   const [loading, setLoading] = useState(true);
 
@@ -40,7 +40,7 @@ export default function AdminBlog() {
         setMessage({ type: 'success', text: data.message });
         setEditing(null);
         setShowForm(false);
-        setForm({ title: '', slug: '', excerpt: '', content: '', category: '', image_url: '', author: 'Lagankhel Dental Clinic', published: 1 });
+        setForm({ title: '', slug: '', excerpt: '', content: '', category: '', image_url: '', author: 'Simrik Dental Clinic', published: 1 });
         fetchPosts();
       } else setMessage({ type: 'error', text: data.message || 'Failed' });
     } catch (err) {
@@ -58,7 +58,7 @@ export default function AdminBlog() {
       content: p.content || '',
       category: p.category || '',
       image_url: p.image_url || '',
-      author: p.author || 'Lagankhel Dental Clinic',
+      author: p.author || 'Simrik Dental Clinic',
       published: p.published ?? 1
     });
   };
@@ -73,7 +73,7 @@ export default function AdminBlog() {
       content: '',
       category: 'Dental Braces',
       image_url: '',
-      author: 'Lagankhel Dental Clinic',
+      author: 'Simrik Dental Clinic',
       published: 1
     });
   };
@@ -132,7 +132,7 @@ export default function AdminBlog() {
           <label><input type="checkbox" checked={!!form.published} onChange={e => setForm({ ...form, published: e.target.checked ? 1 : 0 })} /> Published</label>
           <div className="admin-form-actions">
             <button type="submit" className="btn-primary">Save</button>
-            <button type="button" className="btn-outline" onClick={() => { setShowForm(false); setEditing(null); setForm({ title: '', slug: '', excerpt: '', content: '', category: '', image_url: '', author: 'Lagankhel Dental Clinic', published: 1 }); }}>Cancel</button>
+            <button type="button" className="btn-outline" onClick={() => { setShowForm(false); setEditing(null); setForm({ title: '', slug: '', excerpt: '', content: '', category: '', image_url: '', author: 'Simrik Dental Clinic', published: 1 }); }}>Cancel</button>
           </div>
         </form>
       )}

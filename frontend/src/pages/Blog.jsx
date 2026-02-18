@@ -30,7 +30,7 @@ export default function Blog() {
 
   return (
     <div className="page blog-page">
-      <SeoHead title="Blog" description="Dental health tips, treatment guides, and oral care advice from Lagankhel Dental Clinic in Lalitpur." path="/blog" />
+      <SeoHead title="Blog" description="Dental health tips, treatment guides, and oral care advice from Simrik Dental Clinic in Lalitpur." path="/blog" />
       <section className="page-hero">
         <div className="container">
           <h1>Blog</h1>
@@ -49,7 +49,7 @@ export default function Blog() {
                   <div className="blog-card-body">
                     <span className="blog-category">{post.category}</span>
                     <h3>{post.title}</h3>
-                    <p className="blog-meta">{post.author || 'Lagankhel Dental Clinic'} • {formatDate(post.created_at) || post.date}</p>
+                    <p className="blog-meta">{post.author || 'Simrik Dental Clinic'} • {formatDate(post.created_at) || post.date}</p>
                     <p className="blog-excerpt">{post.excerpt}...</p>
                   </div>
                 </Link>

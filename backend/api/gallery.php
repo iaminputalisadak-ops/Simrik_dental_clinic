@@ -1,6 +1,6 @@
 <?php
 /**
- * Gallery API - Lagankhel Dental Clinic
+ * Gallery API - Simrik Dental Clinic
  */
 
 header('Content-Type: application/json');
