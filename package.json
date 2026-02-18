@@ -1,0 +1,12 @@
+{
+  "name": "lagankhel-dental-clinic",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n php,react -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && php -S localhost:8000",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,19 @@
+.richtext-editor {
+  margin-bottom: 1rem;
+}
+.richtext-editor .quill {
+  background: white;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e2e8f0);
+}
+.richtext-editor .ql-container {
+  min-height: 120px;
+  font-size: 1rem;
+}
+.richtext-editor .ql-editor {
+  min-height: 120px;
+}
+.richtext-editor.richtext-simple .ql-container,
+.richtext-editor.richtext-simple .ql-editor {
+  min-height: 60px;
+}
