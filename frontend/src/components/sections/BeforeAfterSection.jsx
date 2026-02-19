@@ -4,6 +4,12 @@ import BeforeAfterSlider from '../BeforeAfterSlider';
 
 const API_URL = '/api';
 
+function preloadImage(src) {
+  if (!src) return;
+  const img = new Image();
+  img.src = src;
+}
+
 export default function BeforeAfterSection({ initialCases }) {
   const [cases, setCases] = useState(initialCases?.length ? (initialCases.slice(0, 6)) : []);
   const [loading, setLoading] = useState(!initialCases?.length);
@@ -23,6 +29,13 @@ export default function BeforeAfterSection({ initialCases }) {
       .finally(() => setLoading(false));
   }, [initialCases]);
 
+  useEffect(() => {
+    cases.slice(0, 2).forEach((c) => {
+      preloadImage(c.before_image_url);
+      preloadImage(c.after_image_url);
+    });
+  }, [cases]);
+
   if (loading || cases.length === 0) return null;
 
   return (
@@ -40,6 +53,7 @@ export default function BeforeAfterSection({ initialCases }) {
               beforeImage={c.before_image_url}
               afterImage={c.after_image_url}
               title={c.title}
+              priority={i < 2}
             />
           ))}
         </div>

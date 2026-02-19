@@ -785,8 +785,14 @@ a:hover {
 .ba-after {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
+  background-color: #f1f5f9;
+}
+.ba-before img,
+.ba-after img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .ba-before { z-index: 0; }
 .ba-after {

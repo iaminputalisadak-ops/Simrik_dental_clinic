@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 
-export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
-  const [position, setPosition] = useState(50); // 0-100, % from left
+export default function BeforeAfterSlider({ beforeImage, afterImage, title, priority = false }) {
+  const [position, setPosition] = useState(50);
   const containerRef = useRef(null);
 
   const handleMove = useCallback((clientX) => {
@@ -34,6 +34,8 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
     handleMove(e.touches[0].clientX);
   };
 
+  const fetchPrio = priority ? 'high' : undefined;
+
   return (
     <div className="before-after-card">
       <div className="ba-labels">
@@ -47,28 +49,44 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       >
-        <div className="ba-before" style={{ backgroundImage: `url(${beforeImage})` }} aria-label="Before" />
+        <div className="ba-before">
+          {beforeImage && (
+            <img
+              src={beforeImage}
+              alt="Before"
+              loading="eager"
+              decoding="async"
+              fetchPriority={fetchPrio}
+            />
+          )}
+        </div>
         <div
           className="ba-after"
-          style={{
-            backgroundImage: `url(${afterImage})`,
-            clipPath: `inset(0 ${100 - position}% 0 0)`
-          }}
-          aria-label="After"
-        />
-      <div
-        className="ba-handle"
-        style={{ left: `${position}%` }}
-        onMouseDown={handleMouseDown}
-      >
-        <div className="ba-handle-line" />
-        <div className="ba-handle-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M15 18l-6-6 6-6" />
-            <path d="M9 18l6-6-6-6" />
-          </svg>
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        >
+          {afterImage && (
+            <img
+              src={afterImage}
+              alt="After"
+              loading="eager"
+              decoding="async"
+              fetchPriority={fetchPrio}
+            />
+          )}
         </div>
-      </div>
+        <div
+          className="ba-handle"
+          style={{ left: `${position}%` }}
+          onMouseDown={handleMouseDown}
+        >
+          <div className="ba-handle-line" />
+          <div className="ba-handle-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M15 18l-6-6 6-6" />
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </div>
+        </div>
       </div>
       {title && <p className="ba-title">{title}</p>}
     </div>
