@@ -14,6 +14,19 @@ const AdminBeforeAfter = lazy(() => import('../../components/admin/AdminBeforeAf
 
 const API_URL = '/api/admin';
 
+const tabPrefetchers = {
+  hero: () => import('../../components/admin/AdminHero'),
+  gallery: () => import('../../components/admin/AdminGallery'),
+  beforeafter: () => import('../../components/admin/AdminBeforeAfter'),
+  about: () => import('../../components/admin/AdminAbout'),
+  aboutpage: () => import('../../components/admin/AdminAboutPage'),
+  why: () => import('../../components/admin/AdminWhyChoose'),
+  services: () => import('../../components/admin/AdminServices'),
+  team: () => import('../../components/admin/AdminTeam'),
+  blog: () => import('../../components/admin/AdminBlog'),
+  contact: () => import('../../components/admin/AdminContact'),
+};
+
 function TabFallback() {
   return (
     <div className="admin-tab-loading">
@@ -35,10 +48,22 @@ export default function AdminDashboard() {
       .catch(() => setLoggedIn(false));
   }, []);
 
+  useEffect(() => {
+    if (!loggedIn) return;
+    const keys = Object.keys(tabPrefetchers);
+    keys.forEach((key, i) => {
+      setTimeout(() => tabPrefetchers[key]().catch(() => {}), i * 80);
+    });
+  }, [loggedIn]);
+
   const handleLogout = async () => {
     await fetch(`${API_URL}/logout.php`, { credentials: 'include' });
     setLoggedIn(false);
     navigate('/admin/login');
+  };
+
+  const onTabHover = (tab) => {
+    tabPrefetchers[tab]?.().catch(() => {});
   };
 
   if (loggedIn === false) return <Navigate to="/admin/login" replace />;
@@ -53,16 +78,16 @@ export default function AdminDashboard() {
         </div>
       </header>
       <nav className="admin-tabs">
-        <button className={activeTab === 'hero' ? 'active' : ''} onClick={() => setActiveTab('hero')}>Hero Banner</button>
-        <button className={activeTab === 'gallery' ? 'active' : ''} onClick={() => setActiveTab('gallery')}>Gallery</button>
-        <button className={activeTab === 'beforeafter' ? 'active' : ''} onClick={() => setActiveTab('beforeafter')}>Before-After</button>
-        <button className={activeTab === 'about' ? 'active' : ''} onClick={() => setActiveTab('about')}>About (Home)</button>
-        <button className={activeTab === 'aboutpage' ? 'active' : ''} onClick={() => setActiveTab('aboutpage')}>About Page</button>
-        <button className={activeTab === 'why' ? 'active' : ''} onClick={() => setActiveTab('why')}>Why Choose Us</button>
-        <button className={activeTab === 'services' ? 'active' : ''} onClick={() => setActiveTab('services')}>Services</button>
-        <button className={activeTab === 'team' ? 'active' : ''} onClick={() => setActiveTab('team')}>Team</button>
-        <button className={activeTab === 'blog' ? 'active' : ''} onClick={() => setActiveTab('blog')}>Blog</button>
-        <button className={activeTab === 'contact' ? 'active' : ''} onClick={() => setActiveTab('contact')}>Contact & Map</button>
+        <button className={activeTab === 'hero' ? 'active' : ''} onClick={() => setActiveTab('hero')} onMouseEnter={() => onTabHover('hero')}>Hero Banner</button>
+        <button className={activeTab === 'gallery' ? 'active' : ''} onClick={() => setActiveTab('gallery')} onMouseEnter={() => onTabHover('gallery')}>Gallery</button>
+        <button className={activeTab === 'beforeafter' ? 'active' : ''} onClick={() => setActiveTab('beforeafter')} onMouseEnter={() => onTabHover('beforeafter')}>Before-After</button>
+        <button className={activeTab === 'about' ? 'active' : ''} onClick={() => setActiveTab('about')} onMouseEnter={() => onTabHover('about')}>About (Home)</button>
+        <button className={activeTab === 'aboutpage' ? 'active' : ''} onClick={() => setActiveTab('aboutpage')} onMouseEnter={() => onTabHover('aboutpage')}>About Page</button>
+        <button className={activeTab === 'why' ? 'active' : ''} onClick={() => setActiveTab('why')} onMouseEnter={() => onTabHover('why')}>Why Choose Us</button>
+        <button className={activeTab === 'services' ? 'active' : ''} onClick={() => setActiveTab('services')} onMouseEnter={() => onTabHover('services')}>Services</button>
+        <button className={activeTab === 'team' ? 'active' : ''} onClick={() => setActiveTab('team')} onMouseEnter={() => onTabHover('team')}>Team</button>
+        <button className={activeTab === 'blog' ? 'active' : ''} onClick={() => setActiveTab('blog')} onMouseEnter={() => onTabHover('blog')}>Blog</button>
+        <button className={activeTab === 'contact' ? 'active' : ''} onClick={() => setActiveTab('contact')} onMouseEnter={() => onTabHover('contact')}>Contact & Map</button>
       </nav>
       <main className="admin-content">
         {loggedIn === null ? (
