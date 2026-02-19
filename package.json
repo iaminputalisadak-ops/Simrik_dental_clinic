@@ -2,6 +2,7 @@
   "name": "simrik-dental-clinic",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "concurrently -n php,react -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "cd backend && php -S localhost:8000",
     "dev:frontend": "cd frontend && npm run dev"

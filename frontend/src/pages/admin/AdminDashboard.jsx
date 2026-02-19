@@ -1,17 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Navigate, useNavigate, Link } from 'react-router-dom';
-import AdminHero from '../../components/admin/AdminHero';
-import AdminGallery from '../../components/admin/AdminGallery';
-import AdminAbout from '../../components/admin/AdminAbout';
-import AdminAboutPage from '../../components/admin/AdminAboutPage';
-import AdminWhyChoose from '../../components/admin/AdminWhyChoose';
-import AdminServices from '../../components/admin/AdminServices';
-import AdminTeam from '../../components/admin/AdminTeam';
-import AdminBlog from '../../components/admin/AdminBlog';
-import AdminContact from '../../components/admin/AdminContact';
-import AdminBeforeAfter from '../../components/admin/AdminBeforeAfter';
+
+const AdminHero = lazy(() => import('../../components/admin/AdminHero'));
+const AdminGallery = lazy(() => import('../../components/admin/AdminGallery'));
+const AdminAbout = lazy(() => import('../../components/admin/AdminAbout'));
+const AdminAboutPage = lazy(() => import('../../components/admin/AdminAboutPage'));
+const AdminWhyChoose = lazy(() => import('../../components/admin/AdminWhyChoose'));
+const AdminServices = lazy(() => import('../../components/admin/AdminServices'));
+const AdminTeam = lazy(() => import('../../components/admin/AdminTeam'));
+const AdminBlog = lazy(() => import('../../components/admin/AdminBlog'));
+const AdminContact = lazy(() => import('../../components/admin/AdminContact'));
+const AdminBeforeAfter = lazy(() => import('../../components/admin/AdminBeforeAfter'));
 
 const API_URL = '/api/admin';
+
+function TabFallback() {
+  return (
+    <div className="admin-tab-loading">
+      <div className="admin-loading-spinner" />
+      <p>Loading...</p>
+    </div>
+  );
+}
 
 export default function AdminDashboard() {
   const [loggedIn, setLoggedIn] = useState(null);
@@ -61,7 +71,7 @@ export default function AdminDashboard() {
             <p>Verifying session...</p>
           </div>
         ) : (
-          <>
+          <Suspense fallback={<TabFallback />}>
             {activeTab === 'hero' && <AdminHero />}
             {activeTab === 'gallery' && <AdminGallery />}
             {activeTab === 'beforeafter' && <AdminBeforeAfter />}
@@ -72,7 +82,7 @@ export default function AdminDashboard() {
             {activeTab === 'team' && <AdminTeam />}
             {activeTab === 'blog' && <AdminBlog />}
             {activeTab === 'contact' && <AdminContact />}
-          </>
+          </Suspense>
         )}
       </main>
     </div>

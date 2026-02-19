@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 
 const API_URL = '/api/admin';
@@ -9,6 +9,10 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    import('./AdminDashboard').catch(() => {});
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

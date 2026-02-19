@@ -10,13 +10,22 @@ import Blog from './pages/Blog';
 import BeforeAfter from './pages/BeforeAfter';
 
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminDashboard from './pages/admin/AdminDashboard';
+const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 
 function PageFallback() {
   return (
     <div className="page-loading" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="loading-spinner" style={{ width: 40, height: 40, border: '3px solid #e2e8f0', borderTopColor: 'var(--primary)', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+    </div>
+  );
+}
+
+function AdminFallback() {
+  return (
+    <div className="admin-loading admin-verifying" style={{ minHeight: '50vh' }}>
+      <div className="admin-loading-spinner" />
+      <p>Loading admin...</p>
     </div>
   );
 }
@@ -36,8 +45,8 @@ function App() {
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="contact" element={<Contact />} />
           </Route>
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<Suspense fallback={<AdminFallback />}><AdminDashboard /></Suspense>} />
+          <Route path="/admin/login" element={<Suspense fallback={<AdminFallback />}><AdminLogin /></Suspense>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
