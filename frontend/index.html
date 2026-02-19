@@ -16,6 +16,9 @@
     <link rel="preload" href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920" as="image">
   </head>
   <body>
+    <script>
+      (function(){ window.__HOME_PREFETCH__ = fetch('/api/home.php').then(function(r){ return r.json(); }); })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

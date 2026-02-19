@@ -18,21 +18,30 @@ export default function AdminLogin() {
     e.preventDefault();
     setError('');
     setLoading(true);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
     try {
       const res = await fetch(`${API_URL}/login.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
-        credentials: 'include'
+        credentials: 'include',
+        signal: controller.signal
       });
-      const data = await res.json();
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({ success: false, message: 'Invalid response' }));
       if (data.success) {
         navigate('/admin');
       } else {
         setError(data.message || 'Login failed');
       }
     } catch (err) {
-      setError('Unable to connect to server');
+      clearTimeout(timeoutId);
+      if (err.name === 'AbortError') {
+        setError('Request timed out. Is the backend running on port 8000?');
+      } else {
+        setError('Unable to connect. Start backend with: npm run start');
+      }
     } finally {
       setLoading(false);
     }

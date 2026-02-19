@@ -15,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit;
 }
 
-header('Cache-Control: public, max-age=60');
+header('Cache-Control: public, max-age=120');
 $part = isset($_GET['part']) ? trim($_GET['part']) : 'full';
 $cacheDir = __DIR__ . '/../cache';
 $cacheFile = $cacheDir . '/home_full.json';
-$cacheTtl = 60;
+$cacheTtl = 120;
 
 $serveFromCache = function ($full) use ($part) {
     if ($part === 'full') return $full;

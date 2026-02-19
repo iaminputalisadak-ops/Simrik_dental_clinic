@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import SeoHead from '../components/SeoHead';
 import BookAppointmentModal from '../components/BookAppointmentModal';
 import Hero from '../components/sections/Hero';
@@ -6,18 +6,13 @@ import BookCta from '../components/sections/BookCta';
 import AboutSection from '../components/sections/AboutSection';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import Services from '../components/sections/Services';
+import Stats from '../components/sections/Stats';
 import Team from '../components/sections/Team';
 import GallerySection from '../components/sections/GallerySection';
 import BlogPreview from '../components/sections/BlogPreview';
-
-const Stats = lazy(() => import('../components/sections/Stats'));
-const BeforeAfterSection = lazy(() => import('../components/sections/BeforeAfterSection'));
+import BeforeAfterSection from '../components/sections/BeforeAfterSection';
 
 import { getHomeDataPromise } from '../api/homeData';
-
-function SectionFallback() {
-  return <div style={{ minHeight: 120 }} aria-hidden="true" />;
-}
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -45,10 +40,8 @@ export default function Home() {
       <AboutSection initialContent={aboutContent} />
       <WhyChooseUs initialContent={whyContent} />
       <Services initialServices={servicesList} />
-      <Suspense fallback={<SectionFallback />}>
-        <Stats />
-        <BeforeAfterSection initialCases={beforeAfterCases} />
-      </Suspense>
+      <Stats />
+      <BeforeAfterSection initialCases={beforeAfterCases} />
       <Team initialMembers={teamMembers} />
       <GallerySection initialImages={galleryImages} />
       <BlogPreview initialPosts={blogPosts} />
