@@ -9,6 +9,9 @@ const DEFAULT_MEMBERS = [
   { name: 'Dr. Faizuddin Imran', qualification: 'BDS, MDS Periodontology & Implantology', image_url: 'https://images.unsplash.com/photo-1612349316228-5942a9b489c2?w=400' },
   { name: 'Dr. Sibikar P', qualification: 'BDS, MDS Pedodontics and Preventive Dentistry', image_url: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400' },
   { name: 'Dr. Saurabh Pillai', qualification: 'BDS, MDS Oral and Maxillofacial Surgery', image_url: 'https://images.unsplash.com/photo-1618499891438-8cf651bb3104?w=400' },
+  { name: 'Dr. Arvind Raghunath', qualification: 'BDS, MDS Periodontology & Implantology', image_url: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400' },
+  { name: 'Dr. Karen C. Stellus', qualification: 'BDS, Resident Dentist', image_url: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400' },
+  { name: 'Abhinaya', qualification: 'Dental Assistant', image_url: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=400' },
 ];
 
 export default function Team({ initialMembers }) {
