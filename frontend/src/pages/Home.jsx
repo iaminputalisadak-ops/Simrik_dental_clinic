@@ -13,7 +13,7 @@ import BlogPreview from '../components/sections/BlogPreview';
 const Stats = lazy(() => import('../components/sections/Stats'));
 const BeforeAfterSection = lazy(() => import('../components/sections/BeforeAfterSection'));
 
-const HOME_API = '/api/home.php';
+import { getHomeDataPromise } from '../api/homeData';
 
 function SectionFallback() {
   return <div style={{ minHeight: 120 }} aria-hidden="true" />;
@@ -24,14 +24,7 @@ export default function Home() {
   const [homeData, setHomeData] = useState({ critical: null, sections: null });
 
   useEffect(() => {
-    const criticalPromise = fetch(`${HOME_API}?part=critical`).then((r) => r.json());
-    const sectionsPromise = fetch(`${HOME_API}?part=sections`).then((r) => r.json());
-    Promise.all([criticalPromise, sectionsPromise]).then(([critical, sections]) => {
-      setHomeData({
-        critical: critical?.success ? critical : null,
-        sections: sections?.success ? sections : null,
-      });
-    }).catch(() => {});
+    getHomeDataPromise().then(setHomeData).catch(() => {});
   }, []);
 
   const c = homeData.critical || {};

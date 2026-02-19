@@ -2,6 +2,8 @@ import { Component, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 const About = lazy(() => import('./pages/About'));
 const Treatments = lazy(() => import('./pages/Treatments'));
@@ -10,8 +12,6 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BeforeAfter = lazy(() => import('./pages/BeforeAfter'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
-const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 
 function PageFallback() {
   return (

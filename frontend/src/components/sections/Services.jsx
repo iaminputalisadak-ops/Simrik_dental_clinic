@@ -12,7 +12,7 @@ const DEFAULT_SERVICES = [
 ];
 
 export default function Services({ initialServices }) {
-  const [services, setServices] = useState(initialServices?.length ? initialServices : []);
+  const [services, setServices] = useState(initialServices?.length ? initialServices : DEFAULT_SERVICES);
 
   useEffect(() => {
     if (initialServices?.length) setServices(initialServices);

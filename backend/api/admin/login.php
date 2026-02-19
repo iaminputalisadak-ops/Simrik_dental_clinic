@@ -12,12 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') exit(0);
 
 session_start();
 
-require_once __DIR__ . '/../../config/db.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    header('Cache-Control: no-store');
     echo json_encode(['logged_in' => !empty($_SESSION['admin_logged_in'])]);
     exit;
 }
+
+require_once __DIR__ . '/../../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true) ?? $_POST;
