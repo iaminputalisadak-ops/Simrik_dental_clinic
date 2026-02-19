@@ -2,16 +2,16 @@ import { Component, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import About from './pages/About';
-import Treatments from './pages/Treatments';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
-import Blog from './pages/Blog';
-import BeforeAfter from './pages/BeforeAfter';
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminDashboard from './pages/admin/AdminDashboard';
 
+const About = lazy(() => import('./pages/About'));
+const Treatments = lazy(() => import('./pages/Treatments'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BeforeAfter = lazy(() => import('./pages/BeforeAfter'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 
 function PageFallback() {
   return (
@@ -47,7 +47,7 @@ class AppErrorBoundary extends Component {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AppErrorBoundary>
         <Suspense fallback={<PageFallback />}>
           <Routes>

@@ -3,13 +3,13 @@ import SeoHead from '../components/SeoHead';
 import BookAppointmentModal from '../components/BookAppointmentModal';
 import Hero from '../components/sections/Hero';
 import BookCta from '../components/sections/BookCta';
+import AboutSection from '../components/sections/AboutSection';
+import WhyChooseUs from '../components/sections/WhyChooseUs';
+import Services from '../components/sections/Services';
 import Team from '../components/sections/Team';
 import GallerySection from '../components/sections/GallerySection';
 import BlogPreview from '../components/sections/BlogPreview';
 
-const AboutSection = lazy(() => import('../components/sections/AboutSection'));
-const WhyChooseUs = lazy(() => import('../components/sections/WhyChooseUs'));
-const Services = lazy(() => import('../components/sections/Services'));
 const Stats = lazy(() => import('../components/sections/Stats'));
 const BeforeAfterSection = lazy(() => import('../components/sections/BeforeAfterSection'));
 
@@ -49,16 +49,16 @@ export default function Home() {
     <>
       <SeoHead title="Home" description="Simrik Dental Clinic - Best Dental Clinic in Lalitpur. Your smile is our pride. Quality dental care, orthodontics, root canal, and more. Book your appointment today." path="/" />
       <Hero onBookClick={() => setShowModal(true)} initialSlides={heroSlides} />
+      <AboutSection initialContent={aboutContent} />
+      <WhyChooseUs initialContent={whyContent} />
+      <Services initialServices={servicesList} />
       <Suspense fallback={<SectionFallback />}>
-        <AboutSection initialContent={aboutContent} />
-        <WhyChooseUs initialContent={whyContent} />
-        <Services initialServices={servicesList} />
         <Stats />
         <BeforeAfterSection initialCases={beforeAfterCases} />
-        <Team initialMembers={teamMembers} />
-        <GallerySection initialImages={galleryImages} />
-        <BlogPreview initialPosts={blogPosts} />
       </Suspense>
+      <Team initialMembers={teamMembers} />
+      <GallerySection initialImages={galleryImages} />
+      <BlogPreview initialPosts={blogPosts} />
       <BookCta onBookClick={() => setShowModal(true)} />
       <BookAppointmentModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </>

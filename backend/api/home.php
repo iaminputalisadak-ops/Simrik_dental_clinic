@@ -1,8 +1,7 @@
 <?php
 /**
  * Home page data. GET only.
- * Optional ?part=critical (hero, about, why_choose, services) or ?part=sections (team, gallery, blog, before_after).
- * No param = full response (backward compatible).
+ * Optional ?part=critical or ?part=sections. Response cached 60s server-side for speed.
  */
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -16,13 +15,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit;
 }
 
-require_once __DIR__ . '/../config/db.php';
+header('Cache-Control: public, max-age=60');
+$part = isset($_GET['part']) ? trim($_GET['part']) : 'full';
+$cacheDir = __DIR__ . '/../cache';
+$cacheFile = $cacheDir . '/home_' . (in_array($part, ['critical', 'sections'], true) ? $part : 'full') . '.json';
+$cacheTtl = 60;
 
-$part = isset($_GET['part']) ? trim($_GET['part']) : '';
+if (is_file($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTtl) {
+    echo file_get_contents($cacheFile);
+    exit;
+}
+
+require_once __DIR__ . '/../config/db.php';
 
 try {
     $pdo = getDBConnection();
-
     $out = ['success' => true];
 
     if ($part !== 'sections') {
@@ -51,7 +58,10 @@ try {
         $out['before_after'] = ['success' => true, 'cases' => $beforeAfter];
     }
 
-    echo json_encode($out);
+    $json = json_encode($out);
+    if (!is_dir($cacheDir)) @mkdir($cacheDir, 0755, true);
+    @file_put_contents($cacheFile, $json);
+    echo $json;
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Failed to fetch home data']);

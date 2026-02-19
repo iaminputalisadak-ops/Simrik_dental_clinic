@@ -15,7 +15,7 @@ const DEFAULT_MEMBERS = [
 ];
 
 export default function Team({ initialMembers }) {
-  const [members, setMembers] = useState(initialMembers?.length ? initialMembers : []);
+  const [members, setMembers] = useState(initialMembers?.length ? initialMembers : DEFAULT_MEMBERS);
 
   useEffect(() => {
     if (initialMembers?.length) setMembers(initialMembers);
@@ -37,8 +37,8 @@ export default function Team({ initialMembers }) {
         <p className="section-subtitle">TEAM</p>
         <h2 className="section-title">Our Team</h2>
         <div className="team-photo-grid">
-          {members.map((member) => (
-            <div key={member.id} className="team-photo-card">
+          {members.map((member, i) => (
+            <div key={member.id ?? i} className="team-photo-card">
               <div className="team-photo-img">
                 <img src={member.image_url} alt={member.name} loading="lazy" />
                 <div className="team-photo-hover">

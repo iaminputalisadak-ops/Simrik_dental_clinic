@@ -34,8 +34,8 @@ export default function Services({ initialServices }) {
         <p className="section-subtitle">SERVICES</p>
         <h2 className="section-title">Our Dental Services</h2>
         <div className="services-cards-grid">
-          {services.map((s) => (
-            <Link to={s.link || '/treatments'} key={s.id} className="service-image-card">
+          {services.map((s, i) => (
+            <Link to={s.link || '/treatments'} key={s.id ?? i} className="service-image-card">
               <div className="service-image-wrap">
                 <img src={s.image_url} alt={s.title} loading="lazy" />
                 <div className="service-image-overlay" />

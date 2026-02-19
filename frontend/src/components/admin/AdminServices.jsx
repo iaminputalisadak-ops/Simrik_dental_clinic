@@ -86,8 +86,8 @@ export default function AdminServices() {
       <h2>Dental Services</h2>
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <div className="admin-services-grid">
-        {services.map((s) => (
-          <div key={s.id} className="admin-service-item">
+        {services.map((s, i) => (
+          <div key={s.id ?? i} className="admin-service-item">
             <div className="admin-service-preview" style={{ backgroundImage: `url(${s.image_url})` }} />
             <p><strong>{s.title}</strong></p>
             <div>

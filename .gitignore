@@ -8,6 +8,9 @@ frontend/dist/
 backend/uploads/*
 !backend/uploads/.gitkeep
 
+# API response cache
+backend/cache/
+
 # Environment
 .env
 .env.local

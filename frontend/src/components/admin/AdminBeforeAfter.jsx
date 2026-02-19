@@ -120,8 +120,8 @@ export default function AdminBeforeAfter() {
       <h2>Before - After Cases</h2>
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <div className="admin-before-after-grid">
-        {cases.map((c) => (
-          <div key={c.id} className="admin-ba-item">
+        {cases.map((c, i) => (
+          <div key={c.id ?? i} className="admin-ba-item">
             <div className="admin-ba-preview">
               <div className="admin-ba-preview-before" style={{ backgroundImage: `url(${c.before_image_url})` }} />
               <div className="admin-ba-preview-after" style={{ backgroundImage: `url(${c.after_image_url})` }} />

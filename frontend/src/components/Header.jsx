@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const navLinks = [
   { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/treatments', label: 'Treatments' },
-  { path: '/gallery', label: 'Gallery' },
-  { path: '/before-after', label: 'Before-After' },
-  { path: '/blog', label: 'Blog', prefetch: () => import('../pages/BlogPost') },
-  { path: '/contact', label: 'Contact Us' },
+  { path: '/about', label: 'About', prefetch: () => import('../pages/About') },
+  { path: '/treatments', label: 'Treatments', prefetch: () => import('../pages/Treatments') },
+  { path: '/gallery', label: 'Gallery', prefetch: () => import('../pages/Gallery') },
+  { path: '/before-after', label: 'Before-After', prefetch: () => import('../pages/BeforeAfter') },
+  { path: '/blog', label: 'Blog', prefetch: () => import('../pages/Blog') },
+  { path: '/contact', label: 'Contact Us', prefetch: () => import('../pages/Contact') },
 ];
 
 export default function Header() {

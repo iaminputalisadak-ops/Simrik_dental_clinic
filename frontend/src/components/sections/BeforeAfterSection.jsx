@@ -34,9 +34,9 @@ export default function BeforeAfterSection({ initialCases }) {
         <p className="section-subtitle before-after-subtitle">Our Recent Cases</p>
         <h3 className="before-after-heading">Our Cases & Patient Stories We Create Beautiful Smiles</h3>
         <div className="before-after-grid">
-          {cases.map((c) => (
+          {cases.map((c, i) => (
             <BeforeAfterSlider
-              key={c.id}
+              key={c.id ?? i}
               beforeImage={c.before_image_url}
               afterImage={c.after_image_url}
               title={c.title}

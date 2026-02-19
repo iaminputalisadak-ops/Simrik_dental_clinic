@@ -88,8 +88,8 @@ export default function AdminTeam() {
       <h2>Team Members</h2>
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <div className="admin-team-grid">
-        {members.map((m) => (
-          <div key={m.id} className="admin-team-item">
+        {members.map((m, i) => (
+          <div key={m.id ?? i} className="admin-team-item">
             <div className="admin-team-preview" style={{ backgroundImage: `url(${m.image_url})` }} />
             <p><strong>{m.name}</strong></p>
             <p className="admin-team-qual">{m.qualification}</p>

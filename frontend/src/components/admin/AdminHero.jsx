@@ -83,7 +83,7 @@ export default function AdminHero() {
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <div className="admin-hero-list">
         {slides.map((s, i) => (
-          <div key={s.id} className="admin-hero-item">
+          <div key={s.id ?? i} className="admin-hero-item">
             <div className="admin-hero-preview" style={{ backgroundImage: `url(${s.background_image})` }} />
             <div>
               <strong>{s.title || 'Untitled'}</strong>

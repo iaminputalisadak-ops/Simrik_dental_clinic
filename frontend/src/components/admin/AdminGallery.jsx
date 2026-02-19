@@ -86,8 +86,8 @@ export default function AdminGallery() {
       <h2>Gallery Images</h2>
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <div className="admin-gallery-grid">
-        {images.map((img) => (
-          <div key={img.id} className="admin-gallery-item">
+        {images.map((img, i) => (
+          <div key={img.id ?? i} className="admin-gallery-item">
             <div className="admin-gallery-preview" style={{ backgroundImage: `url(${img.image_url})` }} />
             <p>{img.title || 'Untitled'}</p>
             <div>

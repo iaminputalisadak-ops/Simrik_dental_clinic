@@ -10,8 +10,9 @@ const DEFAULT_IMAGES = [
   'https://images.unsplash.com/photo-1629909615782-3a4c1b24a8f2?w=400',
 ];
 
+const DEFAULT_IMAGES_LIST = DEFAULT_IMAGES.map((url, i) => ({ image_url: url, title: `Clinic ${i + 1}` }));
 export default function GallerySection({ initialImages }) {
-  const [images, setImages] = useState(initialImages?.length ? initialImages : []);
+  const [images, setImages] = useState(initialImages?.length ? initialImages : DEFAULT_IMAGES_LIST);
 
   useEffect(() => {
     if (initialImages?.length) setImages(initialImages);

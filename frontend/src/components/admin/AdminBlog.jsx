@@ -97,8 +97,8 @@ export default function AdminBlog() {
       <h2>Blog Posts</h2>
       {message.text && <div className={`form-message ${message.type}`}>{message.text}</div>}
       <div className="admin-blog-list">
-        {posts.map((p) => (
-          <div key={p.id} className="admin-blog-item">
+        {posts.map((p, i) => (
+          <div key={p.id ?? i} className="admin-blog-item">
             <div className="admin-blog-preview" style={{ backgroundImage: `url(${p.image_url})` }} />
             <div>
               <strong>{p.title}</strong>

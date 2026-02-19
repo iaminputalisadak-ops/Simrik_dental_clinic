@@ -15,7 +15,7 @@ function formatDate(d) {
 }
 
 export default function BlogPreview({ initialPosts }) {
-  const [posts, setPosts] = useState(initialPosts?.length ? initialPosts : []);
+  const [posts, setPosts] = useState(initialPosts?.length ? initialPosts : DEFAULT_POSTS);
 
   useEffect(() => {
     if (initialPosts?.length) setPosts(initialPosts);
