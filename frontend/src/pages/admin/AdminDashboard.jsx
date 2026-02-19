@@ -31,7 +31,6 @@ export default function AdminDashboard() {
     navigate('/admin/login');
   };
 
-  if (loggedIn === null) return <div className="admin-loading">Loading...</div>;
   if (loggedIn === false) return <Navigate to="/admin/login" replace />;
 
   return (
@@ -56,16 +55,25 @@ export default function AdminDashboard() {
         <button className={activeTab === 'contact' ? 'active' : ''} onClick={() => setActiveTab('contact')}>Contact & Map</button>
       </nav>
       <main className="admin-content">
-        {activeTab === 'hero' && <AdminHero />}
-        {activeTab === 'gallery' && <AdminGallery />}
-        {activeTab === 'beforeafter' && <AdminBeforeAfter />}
-        {activeTab === 'about' && <AdminAbout />}
-        {activeTab === 'aboutpage' && <AdminAboutPage />}
-        {activeTab === 'why' && <AdminWhyChoose />}
-        {activeTab === 'services' && <AdminServices />}
-        {activeTab === 'team' && <AdminTeam />}
-        {activeTab === 'blog' && <AdminBlog />}
-        {activeTab === 'contact' && <AdminContact />}
+        {loggedIn === null ? (
+          <div className="admin-loading admin-verifying">
+            <div className="admin-loading-spinner" />
+            <p>Verifying session...</p>
+          </div>
+        ) : (
+          <>
+            {activeTab === 'hero' && <AdminHero />}
+            {activeTab === 'gallery' && <AdminGallery />}
+            {activeTab === 'beforeafter' && <AdminBeforeAfter />}
+            {activeTab === 'about' && <AdminAbout />}
+            {activeTab === 'aboutpage' && <AdminAboutPage />}
+            {activeTab === 'why' && <AdminWhyChoose />}
+            {activeTab === 'services' && <AdminServices />}
+            {activeTab === 'team' && <AdminTeam />}
+            {activeTab === 'blog' && <AdminBlog />}
+            {activeTab === 'contact' && <AdminContact />}
+          </>
+        )}
       </main>
     </div>
   );

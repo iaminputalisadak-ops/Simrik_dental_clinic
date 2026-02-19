@@ -10,8 +10,8 @@ import Blog from './pages/Blog';
 import BeforeAfter from './pages/BeforeAfter';
 
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
-const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 function PageFallback() {
   return (
