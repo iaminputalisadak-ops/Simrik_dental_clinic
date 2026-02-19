@@ -3,15 +3,15 @@ import SeoHead from '../components/SeoHead';
 import BookAppointmentModal from '../components/BookAppointmentModal';
 import Hero from '../components/sections/Hero';
 import BookCta from '../components/sections/BookCta';
+import Team from '../components/sections/Team';
+import GallerySection from '../components/sections/GallerySection';
+import BlogPreview from '../components/sections/BlogPreview';
 
 const AboutSection = lazy(() => import('../components/sections/AboutSection'));
 const WhyChooseUs = lazy(() => import('../components/sections/WhyChooseUs'));
 const Services = lazy(() => import('../components/sections/Services'));
 const Stats = lazy(() => import('../components/sections/Stats'));
-const Team = lazy(() => import('../components/sections/Team'));
 const BeforeAfterSection = lazy(() => import('../components/sections/BeforeAfterSection'));
-const GallerySection = lazy(() => import('../components/sections/GallerySection'));
-const BlogPreview = lazy(() => import('../components/sections/BlogPreview'));
 
 const HOME_API = '/api/home.php';
 
@@ -21,24 +21,29 @@ function SectionFallback() {
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
-  const [homeData, setHomeData] = useState(null);
+  const [homeData, setHomeData] = useState({ critical: null, sections: null });
 
   useEffect(() => {
-    fetch(HOME_API)
-      .then(res => res.json())
-      .then(data => data.success && setHomeData(data))
-      .catch(() => {});
+    const criticalPromise = fetch(`${HOME_API}?part=critical`).then((r) => r.json());
+    const sectionsPromise = fetch(`${HOME_API}?part=sections`).then((r) => r.json());
+    Promise.all([criticalPromise, sectionsPromise]).then(([critical, sections]) => {
+      setHomeData({
+        critical: critical?.success ? critical : null,
+        sections: sections?.success ? sections : null,
+      });
+    }).catch(() => {});
   }, []);
 
-  const h = homeData || {};
-  const heroSlides = h.hero?.success && h.hero?.slides?.length ? h.hero.slides : undefined;
-  const aboutContent = h.about?.success && h.about?.content ? h.about.content : undefined;
-  const whyContent = h.why_choose?.success && h.why_choose?.content ? h.why_choose.content : undefined;
-  const servicesList = h.services?.success && h.services?.services?.length ? h.services.services : undefined;
-  const teamMembers = h.team?.success && h.team?.members?.length ? h.team.members : undefined;
-  const galleryImages = h.gallery?.success && h.gallery?.images?.length ? h.gallery.images : undefined;
-  const blogPosts = h.blog?.success && h.blog?.posts?.length ? h.blog.posts : undefined;
-  const beforeAfterCases = h.before_after?.success && h.before_after?.cases?.length ? h.before_after.cases : undefined;
+  const c = homeData.critical || {};
+  const s = homeData.sections || {};
+  const heroSlides = c.hero?.success && c.hero?.slides?.length ? c.hero.slides : undefined;
+  const aboutContent = c.about?.success && c.about?.content ? c.about.content : undefined;
+  const whyContent = c.why_choose?.success && c.why_choose?.content ? c.why_choose.content : undefined;
+  const servicesList = c.services?.success && c.services?.services?.length ? c.services.services : undefined;
+  const teamMembers = s.team?.success && s.team?.members?.length ? s.team.members : undefined;
+  const galleryImages = s.gallery?.success && s.gallery?.images?.length ? s.gallery.images : undefined;
+  const blogPosts = s.blog?.success && s.blog?.posts?.length ? s.blog.posts : undefined;
+  const beforeAfterCases = s.before_after?.success && s.before_after?.cases?.length ? s.before_after.cases : undefined;
 
   return (
     <>

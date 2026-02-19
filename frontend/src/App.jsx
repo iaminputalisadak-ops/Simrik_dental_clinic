@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Component, lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -8,10 +8,10 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BeforeAfter from './pages/BeforeAfter';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
-const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 
 function PageFallback() {
   return (
@@ -21,35 +21,52 @@ function PageFallback() {
   );
 }
 
-function AdminFallback() {
-  return (
-    <div className="admin-loading admin-verifying" style={{ minHeight: '50vh' }}>
-      <div className="admin-loading-spinner" />
-      <p>Loading admin...</p>
-    </div>
-  );
+class AppErrorBoundary extends Component {
+  state = { hasError: false, error: null };
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', padding: '2rem' }}>
+          <div style={{ textAlign: 'center', maxWidth: 400 }}>
+            <h1 style={{ marginBottom: '0.5rem', color: '#1e293b' }}>Something went wrong</h1>
+            <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>The page could not load. Try refreshing or use the links below.</p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/" className="btn-primary">Home</Link>
+              <Link to="/admin/login" className="btn-outline">Admin Login</Link>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<PageFallback />}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="treatments" element={<Treatments />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="before-after" element={<BeforeAfter />} />
-            <Route path="blog" element={<Blog />} />
-            <Route path="blog/:slug" element={<BlogPost />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
-          <Route path="/admin" element={<Suspense fallback={<AdminFallback />}><AdminDashboard /></Suspense>} />
-          <Route path="/admin/login" element={<Suspense fallback={<AdminFallback />}><AdminLogin /></Suspense>} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Suspense>
+      <AppErrorBoundary>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="treatments" element={<Treatments />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="before-after" element={<BeforeAfter />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="blog/:slug" element={<BlogPost />} />
+              <Route path="contact" element={<Contact />} />
+            </Route>
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
+      </AppErrorBoundary>
     </BrowserRouter>
   );
 }
